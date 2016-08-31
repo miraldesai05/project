@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,8 +18,8 @@
 <div class="container">
 		<h2>Add Product</h2>
 		<c:url var="addAction" value="/product/add"></c:url>
-		<form:form action="${addAction}" commandName="product" role="form"
-			class="form-horizontal">
+		<form:form action="${addAction}" commandName="product" role="form" method="post"
+			class="form-horizontal" enctype="multipart/form-data">
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="productId">Product ID:</form:label>
@@ -49,6 +50,13 @@
 					<form:input class="form-control col-lg-6" placeholder="Enter product Name" path="productName" />
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="productDesc">Product Description:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter product Description" path="productDesc" />
+				</div>
+			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="price">Price:</form:label>
@@ -64,12 +72,12 @@
 				</div>
 			</div>
 			
-			<%-- <div class="form-group">
+			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="image">Select image:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" path="image" />
+					<form:input type="file" class="form-control col-lg-6" path="image"/>
 				</div>
-			</div> --%>
+			</div> 
 			
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-10">

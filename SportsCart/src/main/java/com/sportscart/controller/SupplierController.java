@@ -27,7 +27,7 @@ public class SupplierController {
 	@RequestMapping(value = "/supplier/add", method = RequestMethod.POST)
 	public String addSupplier(@ModelAttribute("supplier") Supplier supplier) {
 		supplierService.addSupplier(supplier);
-		return "redirect:/suppliers";
+		return "redirect:/supplierlist";
 	}
 
 	@RequestMapping("supplier/remove/{supplierId}")
@@ -41,7 +41,7 @@ public class SupplierController {
 			e.printStackTrace();
 		}
 		// redirectAttrs.addFlashAttribute(arg0, arg1)
-		return "redirect:/suppliers";
+		return "redirect:/supplierlist";
 	}
 
 	@RequestMapping("supplier/edit/{supplierId}")
@@ -59,5 +59,11 @@ public class SupplierController {
 		model.addAttribute("supplierdetails", this.supplierService.get(supplierId));
 		return "viewsupplier";
 	}
+	
+	@RequestMapping("/supplierlist")
+    public String getList(Model model){
+		model.addAttribute("supplierList", this.supplierService.listSupplier());
+    	return "supplierlist";
+    }	
 
 }

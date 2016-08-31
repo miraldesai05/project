@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
                
  <context:component-scan base-package="com.sportscart.controller" />
- 
+  
  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  <property name="prefix">
    <value>/WEB-INF/views/</value>
@@ -23,4 +23,5 @@
     <mvc:resources mapping="/resources/**" location="/resources/"  
 	cache-period="31556926" />
  <mvc:annotation-driven />
+ 
 </beans>

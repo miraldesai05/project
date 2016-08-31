@@ -1,9 +1,12 @@
 package com.sportscart.model;
 
-/*import java.util.Set;*/
+import java.util.Set;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -18,14 +21,16 @@ public class Category {
 	private String categoryName;
 	@NotEmpty(message="Description can not be null")
 	private String desc; 
-	/*private Set<SubCategory> subCategories;*/
+	@ElementCollection(targetClass=SubCategory.class)
+	@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
+	private Set<SubCategory> subCategory;
 	
-    /*public Set<SubCategory> getSubCategories() {
-		return subCategories;
+    public Set<SubCategory> getSubCategory() {
+		return subCategory;
 	}
-	public void setSubCategories(Set<SubCategory> subCategories) {
-		this.subCategories = subCategories;
-	}*/
+	public void setSubCategory(Set<SubCategory> subCategory) {
+		this.subCategory = subCategory;
+	}
 	public String getCategoryId() {
 		return categoryId;
 	}

@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page isELIgnored="false" %>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,15 +26,28 @@
 <title>Insert title here</title>
 </head>
 <body ng-app="myApp" ng-controller="getData">
-<table>
-			<tr>
-			<td>{{productdata.productId}}</td>
-			<td>{{productdata.subcategoryId}}</td>
-			<td>{{productdata.supplierId}}</td>
-			<td>{{productdata.productName}}</td>
-			<td>{{productdata.price}}</td>
-			<td>{{productdata.quantity}}</td>
-			</tr>
-</table>
+<div class="container text-center">
+<h1>Product Details</h1>
+  <br>
+  <div class="row">
+    <div class="col-sm-5">
+      <img style="width:300px;height:300px" src="{{productdata.image}}"/>
+    </div>
+    <div class="col-sm-3">
+      <h3>Product Name:{{productdata.productName}}</h3>
+    </div>
+     <div class="col-sm-3">
+      <h3>Product Description:{{productdata.productDesc}}</h3>
+    </div>
+    <div class="col-sm-3">
+       <h3>Price:{{productdata.price}}</h3>
+    </div>
+     <div class="col-sm-3">
+       <h3>Product quantity:{{productdata.quantity}}</h3>
+    </div>
+      
+    </div>
+  </div>
+  				
 </body>
 </html>

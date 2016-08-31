@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,8 +60,10 @@ table{
 					<th ng-click="orderByMe('subcategoryId')">Subcategory Id</th>
 					<th ng-click="orderByMe('supplierId')">Supplier Id</th>
 					<th ng-click="orderByMe('productName')">Product Name</th>
+					<th ng-click="orderByMe('productDesc')">Product Description</th>
 					<th ng-click="orderByMe('price')">Price</th>
 					<th ng-click="orderByMe('quantity')">Quantity</th>
+					<th ng-click="orderByMe('image')">Image</th>
 					<th>View Details</th>
 					<th>Edit</th>
 					<th>Delete</th>
@@ -71,9 +74,11 @@ table{
 					<td>{{group.subcategoryId}}</td>
 					<td>{{group.supplierId}}</td>
 					<td>{{group.productName}}</td>
+					<td>{{group.productDesc}}</td>
 					<td>{{group.price}}</td>
 					<td>{{group.quantity}}</td>
-					<td><a href="<c:url value='product/view/{{group.productId}}' />">View</a></td>
+					<td><img style="width:40px;height:40px" src="{{group.image}}"/></td>
+					<td><a href="<c:url value='/productview{{group.productId}}' />">View</a></td>
 					<td><a href="<c:url value='product/edit/{{group.productId}}' />">Edit</a></td>
 					<td><a href="<c:url value='product/remove/{{group.productId}}' />">Delete</a></td>
 				</tr>

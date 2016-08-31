@@ -18,5 +18,6 @@
 			Welcome  ${pageContext.request.userPrincipal.name}
 		</h2>
 </c:if>
+<a href="<c:url value="/logout" />">Logout</a>
 </body>
 </html>

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,12 +38,22 @@
         $('#back-to-top').tooltip('show');
 
 });
- 
+ $(document).ready(function(){
+	    $(".dropdown").hover(            
+	        function() {
+	            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
+	            $(this).toggleClass('open');        
+	        },
+	        function() {
+	            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("400");
+	            $(this).toggleClass('open');       
+	        }
+	    );
+	});
  </script>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -51,14 +66,14 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="users">Contact</a></li>
-      </ul>
+       <li><a href="categories">Add Category</a></li>
+        <li><a href="subcategories">Add Subcategory</a></li>
+        <li><a href="products">Add Product</a></li>
+        <li><a href="suppliers">Add Supplier</a></li>
+      </ul> 
       <ul class="nav navbar-nav navbar-right">
         <li  data-toggle="modal" data-target="#signup"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
@@ -66,47 +81,43 @@
 </br>
 </br>
 </br>
-
-<nav class="navbar navbar-default sidebar" role="navigation" style="height:128%;">
-    <div class="container-fluid">
+ <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>      
-    </div>
-    
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#">INDOOR SPORTS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-   <!--      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-            <li><a href="#">Modificar</a></li>
-            <li><a href="#">Reportar</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Informes</a></li>
-          </ul>
-        </li>  -->         
-        <li><a href="#">OUTDOOR SPORTS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
-        <li><a href="#">GYM AND FITNESS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li><a href="#">ACCESSORIES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
-        <li><a href="#">SHOES<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li><a href="#">CLOTHING<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
-        <li><a href="#">JUNIOR<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-         <li><a href="#">FANGEAR<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li><a href="#">BRANDS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        
+    	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	
+	<div class="collapse navbar-collapse js-navbar-collapse">
+		<ul class="nav navbar-nav">
+		  <c:forEach items="${categoryList}" var="category">
+			<li class="dropdown mega-dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${category.categoryName}</a>				
+				<ul class="dropdown-menu mega-dropdown-menu">
+				  <c:forEach items="${category.subCategory}" var="subcategory">
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">${subcategory.subcategoryName}</li>
+							<c:forEach items="${subcategory.products}" var="product">
+							<li><a href="<c:url value='productview${product.productId}' />">${product.productName}</a></li>	
+							</c:forEach> 
+							
+						</ul>
+					</li>
+					</c:forEach> 
+				</ul>	
+				</li>
+				</c:forEach>  			
+		</ul>
+        <ul class="nav navbar-nav navbar-right">
+       <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>      
       </ul>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid">
+	</div><!-- /.nav-collapse -->
+  </nav>
+<div class="container-fluid"> 
 <div class="row">
   <div class="col-sm-8">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -121,18 +132,18 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <img src="resources/images/fitness.jpg" alt="Image">
-          <div class="carousel-caption">
+          <!-- <div class="carousel-caption">
             <h3>Sell $</h3>
             <p>Money Money.</p>
-          </div>
+          </div>	 -->
         </div>
 
         <div class="item">
           <img src="resources/images/Shop_for_kids.jpg" alt="Image">
-          <div class="carousel-caption">
+          <!-- <div class="carousel-caption">
             <h3>More Sell $</h3>
             <p>Lorem ipsum...</p>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -148,17 +159,16 @@
       
     </div>
     <br>
-   
+   <div class="container">
   <div class="row">
     <div class="col-sm-6"> 
-      <img data-toggle="modal" data-target="#product" src="resources/images/iplb1.jpg" alt=Image width=500px height=250px>
+      <img data-toggle="modal" data-target="#product" src="resources/images/iplb1.jpg" alt=Image width=600px height=250px>
    </div>
     <div class="col-sm-6"> 
-       <img data-toggle="modal" data-target="#product" src="resources/images/hikingb2up.jpg" alt=Image width=500px height=250px>
+       <img data-toggle="modal" data-target="#product" src="resources/images/hikingb2up.jpg" alt=Image width=600px height=250px>
     </div>
     </div>
-    
-
+    </div>
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 	    
   </div>
@@ -211,19 +221,19 @@
   <div class="row">
     <div class="col-sm-3">
       <img src="resources/images/home-banner-1.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Partner 1</p>
+      <!-- <p>Partner 1</p> -->
     </div>
     <div class="col-sm-3">
       <img src="resources/images/badminton.png" class="img-responsive" style="width:100%" alt="Image">
-      <p>Partner 2</p>
+     <!--  <p>Partner 2</p> -->
     </div>
     <div class="col-sm-3">
       <img src="resources/images/basketball-accessories.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Partner 3</p>
+      <!-- <p>Partner 3</p> -->
     </div>
     <div class="col-sm-3">
       <img src="resources/images/badminton-h.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <p>Partner 4</p>
+      <!-- <p>Partner 4</p> -->
     </div>
    <!--  <div class="col-sm-2">
       <img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -262,7 +272,7 @@
 </div><br>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p></p>
 </footer>
 
  <!-- Modal -->
@@ -305,30 +315,84 @@
           <h2 class="modal-title">Registration</h2>
         </div>
         <div class="modal-body">
-          <form role="form">
-      <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name">
-    </div>
-    <div class="form-group">
-      <label for="contact">Contact:</label>
-      <input type="text" class="form-control" id="contact" placeholder="Enter contact">
-    </div>
-    <div class="form-group">
-      <label for="address">Address:</label>
-      <textarea class="form-control" id="address" placeholder="Enter address"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    </div>
-   
-  <button type="submit" class="btn btn-success">Submit</button> 
-  </form>
+          <c:url var="addAction" value="/user/add"></c:url>
+		<form:form action="${addAction}" commandName="user" role="form"
+			class="form-horizontal">
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="mobileNo">Mobile No:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="address">Address:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter address" path="address" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="city">City:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="state">State:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="country">Country:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="email">Email:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter email" path="email" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="gender">Gender:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter gender" path="gender" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="username">Username:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<form:label class="control-label col-sm-4" path="password">Password:</form:label>
+				<div class="col-sm-10 col-lg-6">
+					<form:input class="form-control col-lg-6" placeholder="Enter password" path="password" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-10">
+						<input class="btn btn-success" type="submit" value="Submit">
+				</div>
+			</div>
+		</form:form>
         </div>
         <div class="modal-footer"> 
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -337,7 +401,7 @@
     </div>
   </div>
 
-<!-- Modal -->
+<%-- <!-- Modal -->
   <div class="modal fade" id="product" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -362,6 +426,6 @@
       </div>
     </div>
   </div>
-
+ --%>
 </body>
 </html>

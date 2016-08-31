@@ -1,42 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page isELIgnored="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+  <style>
+
+body {
+position: absolute;
+	top: 70px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: auto;
+	height: auto;
+	background-image:  url("resources/images/8.jpg");
+	background-size: cover;
+     
+     
+}
+</style>
 </head>
 <body>
-<div class="container">
-		<h2>Registration</h2>
-		<form:form action="${addAction}" commandName="next" role="form"
-			class="form-horizontal">
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="username">User name:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" />
-				</div>
-			</div>
 
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="password">Password:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter password" path="password" />
-				</div>
-			</div>
 
-			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
-						<input class="btn btn-success" type="submit" value="Submit">
-				</div>
+<div class="container"  style="margin-top:30px" >
+    <div class="row-md-4 row-md-vertical-offset-40">
+        <div class="col-md-4 col-md-offset-4">
+    		       <!-- <div class="panel panel-info"> -->
+			  	 <div class="panel-heading"> 
+			    	<h4 class="panel-title"><strong>Sign in</strong></h4>
+			 	</div>
+			  	      <div class="panel-body"> 
+			    	<form accept-charset="UTF-8" role="form" action="perform_login" method="POST" >
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="Username" name="username" type="text">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    		</div>
+			    		<div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    	</label>
+			    	    </div>
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+			    	</fieldset>
+			      	</form>
+			    </div>
 			</div>
-		</form:form>
+		</div>
 	</div>
+</div>
+</div>
+
 </body>
 </html>

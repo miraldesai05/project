@@ -15,6 +15,7 @@ public class Product {
 	@Id
 	private String productId;
 	private String productName;
+	private String productDesc;
 	private int price;
 	private int quantity;
 	@Transient
@@ -39,6 +40,12 @@ public class Product {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	public String getProductDesc() {
+		return productDesc;
+	}
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
 	}
 	public int getPrice() {
 		return price;
@@ -84,7 +91,7 @@ public class Product {
 	}
 	public String toString()
 	{
-		return "{productId:'"+ productId +"'," + "subcategoryId:'"+ subcategoryId +"'," + "supplierId:'"+ supplierId +"'," + "productName:'"+ productName +"'," + "price:'"+ price +"'," + "quantity:'"+ quantity +"'}";
+		return "{productId:'"+ productId +"'," + "subcategoryId:'"+ subcategoryId +"'," + "supplierId:'"+ supplierId +"'," + "productName:'"+ productName +"'," + "productDesc:'"+ productDesc +"'," + "price:'"+ price +"'," + "quantity:'"+ quantity +"'," + "image:'resources/images/"+ productId +".jpg'}";
 	}
 
 }

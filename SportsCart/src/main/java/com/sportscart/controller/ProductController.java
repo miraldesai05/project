@@ -1,5 +1,11 @@
 package com.sportscart.controller;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sportscart.model.Product;
 import com.sportscart.model.SubCategory;
@@ -20,6 +27,7 @@ import com.sportscart.service.SupplierService;
 @Controller
 public class ProductController {
 	
+	Path path;
 	@Autowired(required = true)
 	private SubCategoryService subcategoryService;
 	@Autowired(required = true)
@@ -40,7 +48,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/add", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product") Product product) {
+	public String addProduct(@ModelAttribute("product") Product product, HttpServletRequest request) {
 		
 		SubCategory subcategory = subcategoryService.getByName(product.getSubCategory().getSubcategoryName());
 		subcategoryService.addSubCategory(subcategory);
@@ -55,11 +63,23 @@ public class ProductController {
 		product.setSupplierId(supplier.getSupplierId());
 			
 		productService.addProduct(product);
-	
-		return "redirect:/productlist";
+		
+		MultipartFile productImage = product.getImage();
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		path = Paths.get(rootDirectory +  "/resources/images/" + product.getProductId() + ".jpg");
 
-	}
-	
+		if (productImage != null && !productImage.isEmpty()) {
+			try {
+				productImage.transferTo(new File(path.toString()));
+				System.out.println("Image successfully uploaded" + path);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				throw new RuntimeException("Product image saving failed", ex);
+			}
+		}
+		return "redirect:/productlist";
+		}
+   	
 	@RequestMapping("product/remove/{productId}")
 	public String removeProduct(@PathVariable("productId") String productId, ModelMap model) throws Exception {
 
@@ -84,7 +104,7 @@ public class ProductController {
 		return "product";
 	}
 	
-	@RequestMapping("product/view/{productId}")
+	@RequestMapping("/productview{productId}")
 	public String view(@PathVariable("productId") String productId, Model model) {
 		System.out.println("view");
 		model.addAttribute("product", this.productService.get(productId));

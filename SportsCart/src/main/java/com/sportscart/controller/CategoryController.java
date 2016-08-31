@@ -38,7 +38,7 @@ public class CategoryController {
 		else
 		{
 			categoryService.addCategory(category);
-			return "redirect:/categories";
+			return "redirect:/categorylist";
 		}
 
 	}
@@ -54,7 +54,7 @@ public class CategoryController {
 			e.printStackTrace();
 		}
 		// redirectAttrs.addFlashAttribute(arg0, arg1)
-		return "redirect:/categories";
+		return "redirect:/categorylist";
 	}
 
 	@RequestMapping("category/edit/{categoryId}")
@@ -73,4 +73,9 @@ public class CategoryController {
 		return "viewcategory";
 	}
 	
+	@RequestMapping("/categorylist")
+    public String getList(Model model){
+		model.addAttribute("categoryList", this.categoryService.listCategory());
+    	return "categorylist";
+    }	
 }
