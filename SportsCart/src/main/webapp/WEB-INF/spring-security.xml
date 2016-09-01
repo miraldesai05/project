@@ -8,8 +8,8 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
-				users-by-username-query="select username,password,enabled from users where username=?;"
-				authorities-by-username-query="select username,role from users where username=?;" />
+				users-by-username-query="select username,password,enabled from user where username=?;"
+				authorities-by-username-query="select username,role from user where username=?;" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 
@@ -34,7 +34,7 @@
 									
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:form-login login-page="/login"
-			default-target-url="/next" login-processing-url="/perform_login"
+			default-target-url="/" login-processing-url="/perform_login"
 			authentication-failure-url="/login?error" username-parameter="username"
 			password-parameter="password" />
 		<security:logout logout-success-url="/perform_logout" />

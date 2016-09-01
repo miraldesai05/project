@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sportscart.model.Users;
+import com.sportscart.model.User;
 import com.sportscart.service.CategoryService;
 import com.sportscart.service.ProductService;
 import com.sportscart.service.SubCategoryService;
@@ -25,7 +25,7 @@ public class SportsController {
 		model.addAttribute("categoryList", this.categoryService.listCategory());
 		model.addAttribute("subcategoryList", this.subcategoryService.listSubCategory());
 		model.addAttribute("productList", this.productService.listProduct());
-		model.addAttribute("user", new Users());
+		model.addAttribute("user", new User());
 		return "home";
 	}
 	
@@ -34,8 +34,8 @@ public class SportsController {
 		return "login";
 	}*/
 	
-	@RequestMapping("/next")
+	/*@RequestMapping("/next")
 	public String getNext(){
 		return "next";
-	}
+	}*/
 }

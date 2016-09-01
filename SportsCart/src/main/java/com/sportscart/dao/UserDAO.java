@@ -1,8 +1,8 @@
 package com.sportscart.dao;
 
-import com.sportscart.model.Users;
+import com.sportscart.model.User;
 
 public interface UserDAO {
 	
-	public void addUser(Users user);
+	public void addUser(User user);
 }

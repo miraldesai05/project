@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sportscart.dao.UserDAOImpl;
-import com.sportscart.model.Users;
+import com.sportscart.model.User;
 
 @Service
 @Transactional
@@ -14,7 +14,7 @@ public class UserService {
 	@Autowired
 	public UserDAOImpl userDAOImpl;
 	
-	public void addUser(Users user)
+	public void addUser(User user)
 	{
 		userDAOImpl.addUser(user);
 	}

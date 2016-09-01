@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sportscart.model.Users;
+import com.sportscart.model.User;
 import com.sportscart.service.UserService;
 
 @Controller
@@ -25,17 +25,17 @@ public class UserController {
 	
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String user(Model model) {
-		model.addAttribute("user", new Users());
+		model.addAttribute("user", new User());
 		return "user";
 	}
 	
 	@RequestMapping(value = "/user/add", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user") Users user) {
+	public String addUser(@ModelAttribute("user") User user) {
 		  
 		    user.setRole("ROLE_USER");
 		    user.setEnabled(true);
 			userService.addUser(user);
-			return "redirect:/login";		
+			return "redirect:/";		
 	}
 	
 	@RequestMapping("/login")

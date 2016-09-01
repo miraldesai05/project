@@ -4,7 +4,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sportscart.model.Users;
+import com.sportscart.model.Cart;
+import com.sportscart.model.User;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO{
@@ -15,8 +16,12 @@ public class UserDAOImpl implements UserDAO{
 	public UserDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public void addUser(Users user) {
+	public void addUser(User user) {
 		
+		
+		Cart cart = new Cart();
+		
+		cart.setUserId(user.getUserId());
 		sessionFactory.getCurrentSession().saveOrUpdate(user);		
 	}
 	

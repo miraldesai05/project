@@ -36,7 +36,7 @@ public class ProductController {
 	private ProductService productService;
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
-	public String listCategory(Model model) {
+	public String listProduct(Model model) {
 		model.addAttribute("product", new Product());
 		model.addAttribute("subcategory", new SubCategory());
 		model.addAttribute("supplier", new Supplier());
@@ -117,6 +117,12 @@ public class ProductController {
 		model.addAttribute("productList", this.productService.listProduct());
     	return "productlist";
     }
-
-
+	
+	@RequestMapping("/productdisplay{productId}")
+	public String productDisplay(@PathVariable("productId") String productId, Model model) {
+		System.out.println("productdisplay");
+		model.addAttribute("displayproduct", this.productService.listProduct());
+		return "productdisplay";
+	}
+	
 }
