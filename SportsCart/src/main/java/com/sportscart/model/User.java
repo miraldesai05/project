@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,8 +26,24 @@ public class User {
 	private String address;
 	private String city;
 	private String state;
-	private String country;
+	private String country;	
+	private int cartId;
+	@OneToOne
+	@JoinColumn(name="cartId",insertable=false,updatable=false,nullable=false)
+	private Cart cart;
 	
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 	public int getUserId() {
 		return userId;
 	}
