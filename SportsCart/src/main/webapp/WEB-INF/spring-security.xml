@@ -13,8 +13,6 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-	
-
 	<security:http auto-config="true">
 		<security:csrf disabled="true" />
 		<security:intercept-url pattern="/chatpage"

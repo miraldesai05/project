@@ -4,19 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sportscart.dao.CatDAOImpl;
-import com.sportscart.model.Cat;
+import com.sportscart.dao.CartItemDAOImpl;
+import com.sportscart.model.CartItem;
 
 @Service
 @Transactional
-public class CatService {
+public class CartItemService {
 	
 	@Autowired
-	public CatDAOImpl catDAOImpl;
+	public CartItemDAOImpl cartItemDAOImpl;
 	
-	public void addCat(Cat cat)
+	public void addToCart(CartItem cartItem)
 	{
-		catDAOImpl.addCat(cat);
+		cartItemDAOImpl.addToCart(cartItem);
 	}
-
 }

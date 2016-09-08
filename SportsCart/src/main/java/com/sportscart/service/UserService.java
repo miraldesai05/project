@@ -19,4 +19,19 @@ public class UserService {
 		userDAOImpl.addUser(user);
 	}
 	
+	/*public User get(int userId)
+	{
+		return userDAOImpl.get(userId);
+	}*/
+	
+	public User getByName(int userId)
+	{
+		return userDAOImpl.getByName(userId);
+	}
+	
+	public int cart(int userId)
+	{
+		return userDAOImpl.getByName(userId).getCartId();
+	}
+	
 }

@@ -31,7 +31,7 @@ public class SupplierController {
 	}
 
 	@RequestMapping("supplier/remove/{supplierId}")
-	public String removeSupplier(@PathVariable("supplierId") String supplierId, ModelMap model) throws Exception {
+	public String removeSupplier(@PathVariable("supplierId") int supplierId, ModelMap model) throws Exception {
 
 		try {
 			supplierService.delete(supplierId);
@@ -45,7 +45,7 @@ public class SupplierController {
 	}
 
 	@RequestMapping("supplier/edit/{supplierId}")
-	public String editSupplier(@PathVariable("supplierId") String supplierId, Model model) {
+	public String editSupplier(@PathVariable("supplierId") int supplierId, Model model) {
 		System.out.println("editSupplier");
 		model.addAttribute("supplier", this.supplierService.get(supplierId));
 		model.addAttribute("supplierList", this.supplierService.listSupplier());
@@ -53,7 +53,7 @@ public class SupplierController {
 	}
 	
 	@RequestMapping("supplier/view/{supplierId}")
-	public String view(@PathVariable("supplierId") String supplierId, Model model) {
+	public String view(@PathVariable("supplierId") int supplierId, Model model) {
 		System.out.println("view");
 		model.addAttribute("viewsupplier", this.supplierService.get(supplierId));
 		model.addAttribute("supplierdetails", this.supplierService.get(supplierId));

@@ -28,16 +28,16 @@ public class CategoryService {
 		return categoryDAOImpl.listCategory();
 	}
 	
-	public void delete(String categoryId){
+	public void delete(int categoryId){
 		
 		categoryDAOImpl.delete(categoryId);
 	}
 	
-	public Category get(String categoryId){
+	public Category get(int categoryId){
 		return categoryDAOImpl.get(categoryId);
 	}
 	
-	public Category view(String categoryId){
+	public Category view(int categoryId){
 		return categoryDAOImpl.get(categoryId);
 	}
 	

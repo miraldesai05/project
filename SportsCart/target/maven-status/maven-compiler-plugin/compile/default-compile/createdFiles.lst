@@ -8,6 +8,7 @@ com\sportscart\dao\UserDAOImpl.class
 com\sportscart\model\Category.class
 com\sportscart\dao\ProductDAO.class
 com\sportscart\dao\SubCategoryDAO.class
+com\sportscart\model\Cart.class
 com\sportscart\dao\SupplierDAOImpl.class
 com\sportscart\dao\CategoryDAO.class
 com\sportscart\dao\SubCategoryDAOImpl.class

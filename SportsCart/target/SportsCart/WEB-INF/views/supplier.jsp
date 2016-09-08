@@ -19,12 +19,6 @@
 <h2>Add Supplier</h2>
 <c:url var="addAction" value="/supplier/add"></c:url>
 <form:form action="${addAction}" commandName="supplier" role="form" class="form-horizontal">
-        <div class="form-group">
-		<form:label class="control-label col-sm-4" path="supplierId">Supplier ID:</form:label>
-		<div class="col-sm-10 col-lg-6">
-		<form:input class="form-control col-lg-6" placeholder="Enter Supplier Id" path="supplierId"/>
-		</div>
-		</div>
 		
 		<div class="form-group">
 		<form:label class="control-label col-sm-4" path="supplierName">Supplier Name:</form:label>

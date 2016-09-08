@@ -25,12 +25,6 @@
 		<c:url var="addAction" value="/category/add"></c:url>
 		<form:form action="${addAction}" commandName="category" role="form"
 			class="form-horizontal">
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="categoryId">Category ID:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter Category Id" path="categoryId" />
-				</div>
-			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="categoryName">Category Name:</form:label>

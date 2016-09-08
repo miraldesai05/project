@@ -32,14 +32,14 @@ public class SubCategoryDAOImpl implements SubCategoryDAO {
 		return listSubCategory;
 	}
 
-	public void delete(String subcategoryId) {
+	public void delete(int subcategoryId) {
 		SubCategory SubCategoryToDelete = new SubCategory();
 		SubCategoryToDelete.setSubcategoryId(subcategoryId);
 		sessionFactory.getCurrentSession().delete(SubCategoryToDelete);
 		
 	}
 
-	public SubCategory get(String subcategoryId) {
+	public SubCategory get(int subcategoryId) {
 		String hql = "from SubCategory where subcategoryID=" + "'" + subcategoryId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -53,7 +53,7 @@ public class SubCategoryDAOImpl implements SubCategoryDAO {
 		return null;
 	}
 
-	public SubCategory view(String subcategoryId) {
+	public SubCategory view(int subcategoryId) {
 		String hql="from SubCategory where subcategoryID=" + "'+ subcategoryId +'";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		

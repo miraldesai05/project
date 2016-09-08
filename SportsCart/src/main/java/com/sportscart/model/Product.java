@@ -1,6 +1,8 @@
 package com.sportscart.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,15 +15,16 @@ import org.springframework.web.multipart.MultipartFile;
 @Table
 public class Product {
 	@Id
-	private String productId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int productId;
 	private String productName;
 	private String productDesc;
 	private int price;
 	private int quantity;
 	@Transient
 	private MultipartFile image;
-	private String supplierId;
-	private String subcategoryId;
+	private int supplierId;
+	private int subcategoryId;
 	@ManyToOne
 	@JoinColumn(name="subcategoryId",insertable=false,updatable=false,nullable=false)
 	private SubCategory subCategory;
@@ -29,10 +32,10 @@ public class Product {
 	@JoinColumn(name="supplierId",insertable=false,updatable=false,nullable=false)
 	private Supplier supplier;
 	
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 	public String getProductName() {
@@ -65,16 +68,16 @@ public class Product {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-	public String getSupplierId() {
+	public int getSupplierId() {
 		return supplierId;
 	}
-	public void setSupplierId(String supplierId) {
+	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
 	}
-	public String getSubcategoryId() {
+	public int getSubcategoryId() {
 		return subcategoryId;
 	}
-	public void setSubcategoryId(String subcategoryId) {
+	public void setSubcategoryId(int subcategoryId) {
 		this.subcategoryId = subcategoryId;
 	}
 	public SubCategory getSubCategory() {

@@ -22,15 +22,15 @@ public class ProductService {
 	{
 		return productDAOImpl.listProduct();
 	}
-	public void delete(String productId)
+	public void delete(int productId)
 	{
 		productDAOImpl.delete(productId);
 	}
-	public Product get(String productId)
+	public Product get(int productId)
 	{
 		return productDAOImpl.get(productId);
 	}
-	public Product view(String productId)
+	public Product view(int productId)
 	{
 		return productDAOImpl.view(productId);
 	}

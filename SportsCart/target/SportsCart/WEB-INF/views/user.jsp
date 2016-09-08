@@ -35,7 +35,7 @@
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="address">Address:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter address" path="address" />
+					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="4" cols="20" />
 				</div>
 			</div>
 
@@ -69,7 +69,8 @@
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="gender">Gender:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter gender" path="gender" />
+					<form:radiobutton path="gender" value="Male" />Male
+					<form:radiobutton path="gender" value="Female" />Female
 				</div>
 			</div>
 			

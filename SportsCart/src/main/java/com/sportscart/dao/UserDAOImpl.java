@@ -1,7 +1,11 @@
 package com.sportscart.dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +35,26 @@ public class UserDAOImpl implements UserDAO{
 		session.saveOrUpdate(cart);	
 			
 		session.flush();
+	}
+
+	/*public User get(int userId) {
+		Session session=sessionFactory.openSession();
+		Criteria c = session.createCriteria(User.class);
+		c.add(Restrictions.eq("userId", userId));
+		@SuppressWarnings("unchecked")
+		List<User> user = c.list();
+		session.flush();
+		return user.get(0);
+	}*/
+
+	public User getByName(int userId) {
+		Session session=sessionFactory.openSession();
+		Criteria c = session.createCriteria(User.class);
+		c.add(Restrictions.eq("userId", userId));
+		@SuppressWarnings("unchecked")
+		List<User> user = c.list();
+		session.flush();
+		return user.get(0);
 	}
 	
 }

@@ -33,14 +33,14 @@ public class ProductDAOImpl implements ProductDAO {
 		return listProduct;
 	}
 
-	public void delete(String productId) {
+	public void delete(int productId) {
 		Product ProductToDelete = new Product();
 		ProductToDelete.setProductId(productId);
 		sessionFactory.getCurrentSession().delete(ProductToDelete);
 		
 	}
 
-	public Product get(String productId) {
+	public Product get(int productId) {
 		String hql = "from Product where productID=" + "'" + productId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -53,7 +53,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return null;
 	}
 
-	public Product view(String productId) {
+	public Product view(int productId) {
 		String hql="from Product where productID=" + "'+ productId +'";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		

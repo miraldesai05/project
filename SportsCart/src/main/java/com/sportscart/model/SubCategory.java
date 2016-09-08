@@ -5,6 +5,8 @@ import java.util.Set;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,8 +17,9 @@ import javax.persistence.Table;
 @Table
 public class SubCategory {
 	@Id
-	private String subcategoryId;
-	private String categoryId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int subcategoryId;
+	private int categoryId;
 	private String subcategoryName;
 	private String subcategoryDesc;
 	@ManyToOne
@@ -32,16 +35,16 @@ public class SubCategory {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
-	public String getSubcategoryId() {
+	public int getSubcategoryId() {
 		return subcategoryId;
 	}
-	public void setSubcategoryId(String subcategoryId) {
+	public void setSubcategoryId(int subcategoryId) {
 		this.subcategoryId = subcategoryId;
 	}
-	public String getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getSubcategoryName() {

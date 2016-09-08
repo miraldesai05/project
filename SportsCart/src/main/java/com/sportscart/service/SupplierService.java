@@ -24,16 +24,16 @@ public class SupplierService {
 		return supplierDAOImpl.listSupplier();
 	}
 
-	public void delete(String supplierId) {
+	public void delete(int supplierId) {
 
 		supplierDAOImpl.delete(supplierId);
 	}
 	
-	public Supplier get(String supplierId){
+	public Supplier get(int supplierId){
 		return supplierDAOImpl.get(supplierId);
 	}
 	
-	public Supplier view(String supplierId)
+	public Supplier view(int supplierId)
 	{
 		return supplierDAOImpl.get(supplierId);
 	}

@@ -13,8 +13,6 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-	
-
 	<security:http auto-config="true">
 		<security:csrf disabled="true" />
 		<security:intercept-url pattern="/chatpage"
@@ -34,7 +32,7 @@
 									
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:form-login login-page="/login"
-			default-target-url="/next" login-processing-url="/perform_login"
+			default-target-url="/" login-processing-url="/perform_login"
 			authentication-failure-url="/login?error" username-parameter="username"
 			password-parameter="password" />
 		<security:logout logout-success-url="/perform_logout" />

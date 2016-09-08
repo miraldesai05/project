@@ -44,7 +44,7 @@ public class CategoryController {
 	}
 
 	@RequestMapping("category/remove/{categoryId}")
-	public String removeCategory(@PathVariable("categoryId") String categoryId, ModelMap model) throws Exception {
+	public String removeCategory(@PathVariable("categoryId") int categoryId, ModelMap model) throws Exception {
 
 		try {
 			categoryService.delete(categoryId);
@@ -58,7 +58,7 @@ public class CategoryController {
 	}
 
 	@RequestMapping("category/edit/{categoryId}")
-	public String editCategory(@PathVariable("categoryId") String categoryId, Model model) {
+	public String editCategory(@PathVariable("categoryId") int categoryId, Model model) {
 		System.out.println("editCategory");
 		model.addAttribute("category", this.categoryService.get(categoryId));
 		model.addAttribute("categoryList", this.categoryService.listCategory());
@@ -66,7 +66,7 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("category/view/{categoryId}")
-	public String view(@PathVariable("categoryId") String categoryId, Model model) {
+	public String view(@PathVariable("categoryId") int categoryId, Model model) {
 		System.out.println("view");
 		model.addAttribute("viewcategory", this.categoryService.get(categoryId));
 		model.addAttribute("categorydetails", this.categoryService.get(categoryId));

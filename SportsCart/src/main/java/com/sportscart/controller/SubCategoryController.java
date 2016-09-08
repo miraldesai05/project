@@ -48,7 +48,7 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping("subcategory/remove/{subcategoryId}")
-	public String removeSubCategory(@PathVariable("subcategoryId") String subcategoryId, ModelMap model) throws Exception {
+	public String removeSubCategory(@PathVariable("subcategoryId") int subcategoryId, ModelMap model) throws Exception {
 
 		try {
 			subcategoryService.delete(subcategoryId);
@@ -62,7 +62,7 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping("subcategory/edit/{subcategoryId}")
-	public String editSubCategory(@PathVariable("subcategoryId") String subcategoryId, Model model) {
+	public String editSubCategory(@PathVariable("subcategoryId") int subcategoryId, Model model) {
 		System.out.println("editSubCategory");
 		model.addAttribute("subcategory", this.subcategoryService.get(subcategoryId));
 		model.addAttribute("subcategoryList", this.subcategoryService.listSubCategory());
@@ -71,7 +71,7 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping("subcategory/view/{subcategoryId}")
-	public String view(@PathVariable("subcategoryId") String subcategoryId, Model model) {
+	public String view(@PathVariable("subcategoryId") int subcategoryId, Model model) {
 		System.out.println("view");
 		model.addAttribute("viewsubcategory", this.subcategoryService.get(subcategoryId));
 		model.addAttribute("subcategorydetails", this.subcategoryService.get(subcategoryId));

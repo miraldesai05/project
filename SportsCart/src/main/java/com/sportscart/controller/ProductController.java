@@ -66,6 +66,7 @@ public class ProductController {
 		
 		MultipartFile productImage = product.getImage();
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		System.out.println(rootDirectory);
 		path = Paths.get(rootDirectory +  "/resources/images/" + product.getProductId() + ".jpg");
 
 		if (productImage != null && !productImage.isEmpty()) {
@@ -81,7 +82,7 @@ public class ProductController {
 		}
    	
 	@RequestMapping("product/remove/{productId}")
-	public String removeProduct(@PathVariable("productId") String productId, ModelMap model) throws Exception {
+	public String removeProduct(@PathVariable("productId") int productId, ModelMap model) throws Exception {
 
 		try {
 			productService.delete(productId);
@@ -95,7 +96,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("product/edit/{productId}")
-	public String editProduct(@PathVariable("productId") String productId, Model model) {
+	public String editProduct(@PathVariable("productId") int productId, Model model) {
 		System.out.println("editProduct");
 		model.addAttribute("product", this.productService.get(productId));
 		model.addAttribute("productList", this.productService.listProduct());
@@ -105,7 +106,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productview{productId}")
-	public String view(@PathVariable("productId") String productId, Model model) {
+	public String view(@PathVariable("productId") int productId, Model model) {
 		System.out.println("view");
 		model.addAttribute("product", this.productService.get(productId));
 		model.addAttribute("productdetails", this.productService.get(productId));
@@ -119,7 +120,7 @@ public class ProductController {
     }
 	
 	@RequestMapping("/productdisplay{productId}")
-	public String productDisplay(@PathVariable("productId") String productId, Model model) {
+	public String productDisplay(@PathVariable("productId") int productId, Model model) {
 		System.out.println("productdisplay");
 		model.addAttribute("displayproduct", this.productService.listProduct());
 		return "productdisplay";

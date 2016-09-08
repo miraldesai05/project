@@ -8,9 +8,9 @@ public interface SupplierDAO {
 	
 	public void addSupplier(Supplier supplier);
 	public List<Supplier> listSupplier();
-	public void delete(String supplierId);
-	public Supplier get(String supplierId);
-	public Supplier view(String supplierId);
+	public void delete(int supplierId);
+	public Supplier get(int supplierId);
+	public Supplier view(int supplierId);
 	public Supplier getByName(String supplierName);
 
 }

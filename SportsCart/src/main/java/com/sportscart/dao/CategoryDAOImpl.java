@@ -32,13 +32,13 @@ public class CategoryDAOImpl implements CategoryDAO {
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listCategory;
 	}
-	public void delete(String categoryId) {
+	public void delete(int categoryId) {
 		Category CategoryToDelete = new Category();
 		CategoryToDelete.setCategoryId(categoryId);
 		sessionFactory.getCurrentSession().delete(CategoryToDelete);
 	}
 
-	public Category get(String categoryId) {
+	public Category get(int categoryId) {
 		String hql = "from Category where categoryID=" + "'" + categoryId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -53,7 +53,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	
-	public Category view(String categoryId) {
+	public Category view(int categoryId) {
 		String hql="from Category where categoryID=" + "'+ categoryId +'";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		

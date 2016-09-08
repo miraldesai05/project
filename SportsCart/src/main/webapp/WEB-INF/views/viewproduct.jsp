@@ -17,7 +17,7 @@
 		myApp.controller('getData', function($scope,$http,$location)
 		 { 
 			/* $scope.searchKeyword=location.search.substr(15); */
-			$scope.productdata = ${displayproduct};
+			$scope.productdata = ${productdetails};
 			//alert($scope.productdata);
 		 
 		 });

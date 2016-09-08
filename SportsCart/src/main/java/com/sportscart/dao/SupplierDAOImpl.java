@@ -32,14 +32,14 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 	}
 
-	public void delete(String supplierId) {
+	public void delete(int supplierId) {
 		Supplier SupplierToDelete = new Supplier();
 		SupplierToDelete.setSupplierId(supplierId);
 		sessionFactory.getCurrentSession().delete(SupplierToDelete);
 		
 	}
 
-	public Supplier get(String supplierId) {
+	public Supplier get(int supplierId) {
 		String hql = "from Supplier where supplierID=" + "'" + supplierId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -53,7 +53,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Supplier view(String supplierId) {
+	public Supplier view(int supplierId) {
 			String hql="from Supplier where supplierID=" + "'+ supplierId +'";
 			Query query=sessionFactory.getCurrentSession().createQuery(hql);
 			

@@ -22,13 +22,6 @@
 			class="form-horizontal">
 			
 			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="subcategoryId">Subcategory ID:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter subCategory Id" path="subcategoryId" />
-				</div>
-			</div>
-			
-			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="category.categoryName">Select Category Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:select class="form-control col-lg-6" path="category.categoryName" items="${categoryList}"

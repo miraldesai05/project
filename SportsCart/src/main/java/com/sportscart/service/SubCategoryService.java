@@ -24,15 +24,15 @@ public class SubCategoryService {
 	{
 		return subcategoryDAOImpl.listSubCategory();
 	}
-	public void delete(String subcategoryId)
+	public void delete(int subcategoryId)
 	{
 		subcategoryDAOImpl.delete(subcategoryId);
 	}
-	public SubCategory get(String subcategoryId)
+	public SubCategory get(int subcategoryId)
 	{
 		return subcategoryDAOImpl.get(subcategoryId);
 	}
-	public SubCategory view(String subcategoryId)
+	public SubCategory view(int subcategoryId)
 	{
 		return subcategoryDAOImpl.get(subcategoryId);
 	}
