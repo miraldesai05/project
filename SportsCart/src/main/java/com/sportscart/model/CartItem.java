@@ -82,5 +82,9 @@ public class CartItem {
 	public void setProduct(Product product) {
 		this.product = product;
 	}	
+	public String toString()
+	{
+		return "{cartItemId:'"+ cartItemId +"'," + "cartId:'"+ cartId +"'," + "productId:'"+ productId +"'," + "productName:'"+ productName +"'," + "price:'"+ price +"'," + "quantity:'"+ quantity +"'," + "totalPrice:'"+ totalPrice +"'}";
+	}
 
 }

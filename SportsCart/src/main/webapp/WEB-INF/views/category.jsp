@@ -26,6 +26,16 @@
 		<form:form action="${addAction}" commandName="category" role="form"
 			class="form-horizontal">
 
+			
+			<div class="form-group">
+				<div class="col-sm-10 col-lg-6">
+				<c:if test="${!empty category.categoryId}">
+					<form:input type="hidden" class="form-control col-lg-6" path="categoryId" />
+					</c:if>
+				</div>
+			</div>
+			
+			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="categoryName">Category Name:</form:label>
 				<div class="col-sm-10 col-lg-6">

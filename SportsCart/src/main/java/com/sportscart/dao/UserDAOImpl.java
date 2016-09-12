@@ -37,20 +37,10 @@ public class UserDAOImpl implements UserDAO{
 		session.flush();
 	}
 
-	/*public User get(int userId) {
+	public User getByName(String username) {
 		Session session=sessionFactory.openSession();
 		Criteria c = session.createCriteria(User.class);
-		c.add(Restrictions.eq("userId", userId));
-		@SuppressWarnings("unchecked")
-		List<User> user = c.list();
-		session.flush();
-		return user.get(0);
-	}*/
-
-	public User getByName(int userId) {
-		Session session=sessionFactory.openSession();
-		Criteria c = session.createCriteria(User.class);
-		c.add(Restrictions.eq("userId", userId));
+		c.add(Restrictions.eq("username", username));
 		@SuppressWarnings("unchecked")
 		List<User> user = c.list();
 		session.flush();

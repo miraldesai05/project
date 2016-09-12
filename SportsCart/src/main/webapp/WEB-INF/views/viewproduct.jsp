@@ -45,7 +45,7 @@
      <div class="col-sm-3">
        <h3>Product quantity:{{productdata.quantity}}</h3>
     </div>
-      
+      <a href="cartitem/add?productId={{productdata.productId}}">Add to cart</a>
     </div>
   </div>
   				

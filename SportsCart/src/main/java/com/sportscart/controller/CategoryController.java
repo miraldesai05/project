@@ -57,7 +57,7 @@ public class CategoryController {
 		return "redirect:/categorylist";
 	}
 
-	@RequestMapping("category/edit/{categoryId}")
+	@RequestMapping("category--{categoryId}")
 	public String editCategory(@PathVariable("categoryId") int categoryId, Model model) {
 		System.out.println("editCategory");
 		model.addAttribute("category", this.categoryService.get(categoryId));

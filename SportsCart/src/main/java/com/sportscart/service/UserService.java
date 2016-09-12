@@ -18,20 +18,13 @@ public class UserService {
 	{
 		userDAOImpl.addUser(user);
 	}
-	
-	/*public User get(int userId)
+	public User getByName(String username)
 	{
-		return userDAOImpl.get(userId);
-	}*/
-	
-	public User getByName(int userId)
-	{
-		return userDAOImpl.getByName(userId);
+		return userDAOImpl.getByName(username);
 	}
-	
-	public int cart(int userId)
+	public String user(String username)
 	{
-		return userDAOImpl.getByName(userId).getCartId();
+		return userDAOImpl.getByName(username).getUsername();
 	}
 	
 }
