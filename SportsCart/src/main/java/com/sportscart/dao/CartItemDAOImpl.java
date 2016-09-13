@@ -48,7 +48,7 @@ public class CartItemDAOImpl implements CartItemDAO{
 		Criteria c = session.createCriteria(CartItem.class);
 		c.add(Restrictions.eq("cartId", cartId));
 		@SuppressWarnings("unchecked")
-		List<CartItem> cartItem = c.list();
+		List<CartItem> cartItem = (List<CartItem>)(c.list());
 		session.flush();
 		return cartItem;
 		

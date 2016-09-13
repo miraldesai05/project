@@ -69,7 +69,7 @@ table{
 					<td>{{group.categoryName}}</td>
 					<td>{{group.desc}}</td>
 					<td><a href="<c:url value='category/view/{{group.categoryId}}' />">View</a></td>
-					<td><a href="<c:url value='category--{{group.categoryId}}' />">Edit</a></td>
+					<td><a href="<c:url value='category/edit/{{group.categoryId}}' />">Edit</a></td>
 					<td><a href="<c:url value='category/remove/{{group.categoryId}}' />">Delete</a></td>
 				</tr>
 

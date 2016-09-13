@@ -1,9 +1,12 @@
 package com.sportscart.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,17 +36,24 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping(value = "/subcategory/add", method = RequestMethod.POST)
-	public String addSubCategory(@ModelAttribute("subcategory") SubCategory subcategory) {
+	public String addSubCategory(@Valid@ModelAttribute("subcategory") SubCategory subcategory, BindingResult result) {
 		
-		Category category = categoryService.getByName(subcategory.getCategory().getCategoryName());
-		categoryService.addCategory(category);
+		if(result.hasErrors())
+		{
+			return "subcategory";
+		}
+		else
+		{
+			Category category = categoryService.getByName(subcategory.getCategory().getCategoryName());
+			categoryService.addCategory(category);
+			
+			subcategory.setCategory(category);
+			subcategory.setCategoryId(category.getCategoryId());
+			
+			subcategoryService.addSubCategory(subcategory);
 		
-		subcategory.setCategory(category);
-		subcategory.setCategoryId(category.getCategoryId());
-		
-		subcategoryService.addSubCategory(subcategory);
-	
-		return "redirect:/subcategorylist";
+			return "redirect:/subcategorylist";
+		}
 
 	}
 	

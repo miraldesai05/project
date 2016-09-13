@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table
 public class SubCategory {
@@ -20,7 +22,9 @@ public class SubCategory {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int subcategoryId;
 	private int categoryId;
+	@NotEmpty(message="Subcategory Name can not be null")
 	private String subcategoryName;
+	@NotEmpty(message="Subcategory Description can not be null")
 	private String subcategoryDesc;
 	@ManyToOne
 	@JoinColumn(name="categoryId",insertable=false,updatable=false,nullable=false)

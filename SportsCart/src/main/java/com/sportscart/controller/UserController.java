@@ -29,14 +29,14 @@ public class UserController {
 		return "user";
 	}
 	
-	@RequestMapping(value = "/user/add", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/user/add", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("user") User user) {
 		  
 		    user.setRole("ROLE_USER");
 		    user.setEnabled(true);
 			userService.addUser(user);
 			return "redirect:/";		
-	}
+	}*/
 	
 	@RequestMapping("/login")
     public String login(@RequestParam(value="error", required = false)

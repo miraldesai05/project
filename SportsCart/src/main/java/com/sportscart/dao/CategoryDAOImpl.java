@@ -39,7 +39,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	public Category get(int categoryId) {
-		String hql = "from Category where categoryID="  + categoryId ;
+		String hql = "from Category where categoryID=" + "'" + categoryId + "'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")

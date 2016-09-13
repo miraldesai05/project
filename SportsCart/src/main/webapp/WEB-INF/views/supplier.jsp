@@ -12,6 +12,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+.error {
+	color: #ff0000;
+}
+</style>
 <title>Insert title here</title> 
 </head>
 <body>
@@ -21,9 +26,18 @@
 <form:form action="${addAction}" commandName="supplier" role="form" class="form-horizontal">
 		
 		<div class="form-group">
+				<div class="col-sm-10 col-lg-6">
+				<c:if test="${!empty supplier.supplierId}">
+					<form:input type="hidden" class="form-control col-lg-6" path="supplierId" />
+					</c:if>
+				</div>
+			</div>
+			
+		<div class="form-group">
 		<form:label class="control-label col-sm-4" path="supplierName">Supplier Name:</form:label>
 		<div class="col-sm-10 col-lg-6">
 		<form:input class="form-control col-lg-6" placeholder="Enter Supplier Name" path="supplierName"/>
+		<form:errors path="supplierName" cssClass="error"></form:errors>
 		</div>
 		</div>
 		
@@ -31,6 +45,7 @@
 		<form:label class="control-label col-sm-4" path="supplierAddress">Supplier Address:</form:label>
 		<div class="col-sm-10 col-lg-6">
 		<form:input class="form-control col-lg-6" placeholder="Enter Supplier Address" path="supplierAddress"/>
+		<form:errors path="supplierAddress" cssClass="error"></form:errors>
 		</div>
 		</div>
 		

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sportscart.model.CartItem;
@@ -31,21 +30,6 @@ public class CartItemController {
 	@Autowired(required = true)
 	private CartService cartService;
 	
-	@RequestMapping(value = "/cartitems", method = RequestMethod.GET)
-	public String cart(Model model) {
-		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-		String username = authentication.getName();
-		
-		int userId=userService.getByName(username).getUserId();
-		
-		int cartId=cartService.get(userId).getCartId(); 
-		
-		model.addAttribute("cartitem", new CartItem());
-		/*model.addAttribute("cartItemList", this.cartItemService.listCartItem());*/
-		model.addAttribute("cartItemList", this.cartItemService.getList(cartId));
-		return "cartitem";
-	}
-	
 	@RequestMapping(value = "/cartitem/add")
 	public String addTocart(@ModelAttribute("cartItem") CartItem cartItem,@RequestParam("productId") int productId) {
 		  
@@ -67,13 +51,21 @@ public class CartItemController {
 		cartItem.setTotalPrice(price*cartItem.getQuantity());
 		
 		cartItemService.addToCart(cartItem);
+		
+		
 		return "redirect:/cartitemlist";							
 	}
 	
 	@RequestMapping("/cartitemlist")
 	public String cartList(Model model)
 	{
-		model.addAttribute("cartItemList", this.cartItemService.listCartItem());
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		
+		int userId=userService.getByName(username).getUserId();
+		
+		int cartId=cartService.get(userId).getCartId();
+		model.addAttribute("cartItemList", this.cartItemService.getList(cartId));
 		return "cartitemlist";
 	}
 	

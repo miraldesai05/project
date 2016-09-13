@@ -20,7 +20,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int categoryId;
-	@NotEmpty(message="category Name can not be null")
+	@NotEmpty(message="Category Name can not be null")
 	private String categoryName;
 	@NotEmpty(message="Description can not be null")
 	private String desc; 

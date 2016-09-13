@@ -12,6 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+.error {
+	color: #ff0000;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,6 +25,14 @@
 		<c:url var="addAction" value="/subcategory/add"></c:url>
 		<form:form action="${addAction}" commandName="subcategory" role="form"
 			class="form-horizontal">
+			
+			<div class="form-group">
+				<div class="col-sm-10 col-lg-6">
+				<c:if test="${!empty subcategory.subcategoryId}">
+					<form:input type="hidden" class="form-control col-lg-6" path="subcategoryId" />
+					</c:if>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="category.categoryName">Select Category Name:</form:label>
@@ -33,6 +46,7 @@
 				<form:label class="control-label col-sm-4" path="subcategoryName">Subcategory Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter subcategory Name" path="subcategoryName" />
+					<form:errors path="subcategoryName" cssClass="error"></form:errors>
 				</div>
 			</div>
 
@@ -40,6 +54,7 @@
 				<form:label class="control-label col-sm-4" path="subcategoryDesc">Subcategory Description:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter subcategory Description" path="subcategoryDesc" />
+					<form:errors path="subcategoryDesc" cssClass="error"></form:errors>
 				</div>
 			</div>
 			

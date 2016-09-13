@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table
 public class Supplier {
@@ -13,7 +15,9 @@ public class Supplier {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int supplierId;
+	@NotEmpty(message="Supplier Name can not be null")
 	private String supplierName;
+	@NotEmpty(message="Supplier Address can not be null")
 	private String supplierAddress;
 	
 	public int getSupplierId() {
