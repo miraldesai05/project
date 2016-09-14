@@ -81,6 +81,8 @@ table{
 				</tr>
 
 			</table>
+			
+			<a href="start">Checkout</a>
 		</div>
 	</div>
 

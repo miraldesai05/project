@@ -29,6 +29,12 @@ public class SportsController {
 		return "home";
 	}
 	
+	@RequestMapping("/categoryli")
+	public String getCatgorylist(Model model){
+		model.addAttribute("categoryList", this.categoryService.listCategory());
+		return "categoryli";
+	}
+	
 	/*@RequestMapping("/login")
 	public String getLogin(){
 		return "login";
