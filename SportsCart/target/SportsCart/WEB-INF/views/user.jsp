@@ -15,8 +15,9 @@
 <body>
 <div class="container">
 		<h2>Registration</h2>
+		<a href="${flowExecutionUrl}&_eventId_home">Home</a>
 		<c:url var="addAction" value="/user/add"></c:url>
-		<form:form action="${addAction}" commandName="user" role="form"
+		<form:form commandName="user" role="form"
 			class="form-horizontal">
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
@@ -90,7 +91,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-10">
-						<input class="btn btn-success" type="submit" value="Submit">
+						<input name="_eventId_submit" class="btn btn-success" type="submit" value="Submit">
 				</div>
 			</div>
 		</form:form>

@@ -22,6 +22,14 @@
 			class="form-horizontal" enctype="multipart/form-data">
 			
 			<div class="form-group">
+				<div class="col-sm-10 col-lg-6">
+				<c:if test="${!empty product.productId}">
+					<form:input type="hidden" class="form-control col-lg-6" path="productId" />
+					</c:if>
+				</div>
+			</div>
+			
+			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="subCategory.subcategoryName">Select Subcategory Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:select class="form-control col-lg-6" path="subCategory.subcategoryName" items="${subcategoryList}"

@@ -83,7 +83,7 @@
   		</c:if>
       	</li>  
       	<sec:authorize access="isAnonymous()">	
-        <li data-toggle="modal" data-target="#signup"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>     
+        <li data-toggle="modal" data-target="#signup"><a href="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>     
         <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">

@@ -25,8 +25,13 @@ com\sportscart\model\CartItem.class
 com\sportscart\dao\CartItemDAOImpl.class
 com\sportscart\dao\UserDAO.class
 com\sportscart\service\UserService.class
+com\sportscart\handler\CartHandler.class
+com\sportscart\dao\CartDAO.class
 com\sportscart\model\Product.class
 com\sportscart\service\SupplierService.class
 com\sportscart\service\CartItemService.class
+com\sportscart\handler\SportsHandler.class
 com\sportscart\controller\CartItemController.class
 com\sportscart\model\Supplier.class
+com\sportscart\service\CartService.class
+com\sportscart\dao\CartDAOImpl.class
