@@ -25,17 +25,17 @@
  
 	<view-state id="confirmdetails" view="confirmdetails" model="flowScope.user">
 		<transition on="edit" to="start" />
-		<transition on="submit" to="welcome" />
+		<transition on="submit" to="add" />
 	</view-state>
 	
-	<action-state id="welcome">
+	<action-state id="add">
 	  	<evaluate expression="userService.addUser(user)" result="flowScope.user"></evaluate>
-	  	<transition on="submit" to="wel" />	  	
+	  	<transition to="welcome" />	  	
 	</action-state>
  
-	<end-state id="wel" view="home" />
+	<end-state id="welcome" view="home" />
 	
-	<end-state id="toHome" view="externalRedirect:contextRelative:home.jsp" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
 	<!-- <end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" /> -->
  
 	<!-- these events are available in every state-->

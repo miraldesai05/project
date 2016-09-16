@@ -23,7 +23,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	public void addUser(User user) {
-		
+		user.setRole("ROLE_USER");
+		user.setEnabled(true);
 	    Session session= sessionFactory.getCurrentSession();
 		Cart cart = new Cart();	
 		cart.setUserId(user.getUserId());

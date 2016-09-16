@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
@@ -12,11 +12,12 @@
 	</on-start>
 	
 	<action-state id="userOrder">
-		<evaluate expression="userService.(requestParameters.userId)" result="flowScope.user"></evaluate>
+		<evaluate expression="userService.getByName(requestParameters.username)" result="flowScope.user"></evaluate>
+		<transition to="start"/>
 	</action-state>
 
 	<view-state id="start" view="billingaddress" model="flowScope.user">
 	   <transition on="submit" to="confirmdetails"/>
 	</view-state>
 	
-      </flow>  -->
+      </flow>   
