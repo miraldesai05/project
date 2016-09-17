@@ -6,16 +6,19 @@
 	display: none;
 }
 
+.navbar-custom {
+    background-color: #99ccff;
+}
 #myCarousel {
 	width: 152%;
 }
 
 a.right.carousel-control {
-	color: #66ec04;
+	color: #0066ff;
 }
 
 a.left.carousel-control {
-	color: #66ec04;
+	color: #0066ff;
 }
 /* Add a gray background color and some padding to the footer */
 footer {

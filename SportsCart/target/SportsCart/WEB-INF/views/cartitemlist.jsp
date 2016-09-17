@@ -82,7 +82,7 @@ table{
 
 			</table>
 			
-			<a href="start">Checkout</a>
+			<a href="member">Checkout</a>
 		</div>
 	</div>
 

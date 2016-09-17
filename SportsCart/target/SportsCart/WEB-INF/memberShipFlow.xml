@@ -25,8 +25,13 @@
  
 	<view-state id="confirmdetails" view="confirmdetails" model="flowScope.user">
 		<transition on="edit" to="start" />
-		<transition on="submit" to="welcome" />
+		<transition on="submit" to="add" />
 	</view-state>
+	
+	<action-state id="add">
+	  	<evaluate expression="userService.addUser(user)" result="flowScope.user"></evaluate>
+	  	<transition to="welcome" />	  	
+	</action-state>
  
 	<end-state id="welcome" view="home" />
 	

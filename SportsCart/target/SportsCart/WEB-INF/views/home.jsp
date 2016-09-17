@@ -83,7 +83,7 @@
   		</c:if>
       	</li>  
       	<sec:authorize access="isAnonymous()">	
-        <li data-toggle="modal" data-target="#signup"><a href="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>     
+        <li><a href="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>     
         <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
@@ -96,7 +96,7 @@
 </br>
 </br>
 </br>
- <nav class="navbar navbar-inverse">
+ <nav class="navbar navbar-custom">
     <div class="navbar-header">
     	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
