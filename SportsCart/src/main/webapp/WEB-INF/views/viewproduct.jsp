@@ -20,34 +20,31 @@
 			$scope.productdata = ${productdetails};
 			//alert($scope.productdata);
 		 
-		 });
-	
+		 });	
 </script>
 <title>Insert title here</title>
 </head>
 <body ng-app="myApp" ng-controller="getData">
-<div class="container text-center">
+<div class="container">
 <h1>Product Details</h1>
+<hr>
   <br>
   <div class="row">
     <div class="col-sm-5">
       <img style="width:300px;height:300px" src="{{productdata.image}}"/>
     </div>
-    <div class="col-sm-3">
-      <h3>Product Name:{{productdata.productName}}</h3>
-    </div>
-     <div class="col-sm-3">
-      <h3>Product Description:{{productdata.productDesc}}</h3>
-    </div>
-    <div class="col-sm-3">
-       <h3>Price:{{productdata.price}}</h3>
-    </div>
-     <div class="col-sm-3">
-       <h3>Product quantity:{{productdata.quantity}}</h3>
-    </div>
-      <a href="cartitem/add?productId={{productdata.productId}}">Add to cart</a>
+    <div class="col-sm-7">
+      <h3>Product Name: {{productdata.productName}}</h3>
+    
+      <h3>Product Description: {{productdata.productDesc}}</h3>
+   
+       <h3>Price: {{productdata.price}}</h3>
+    
+       <h3>Quantity: {{productdata.quantity}}</h3>
+    
+     <a href="cartitem/add?productId={{productdata.productId}}" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</a>
     </div>
   </div>
-  				
+ </div>		
 </body>
 </html>

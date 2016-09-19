@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -17,7 +18,9 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int productId;
+	@NotEmpty(message="Product Name can not be null")
 	private String productName;
+	@NotEmpty(message="Product Description can not be null")
 	private String productDesc;
 	private int price;
 	private int quantity;
