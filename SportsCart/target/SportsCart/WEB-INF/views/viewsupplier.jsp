@@ -26,12 +26,18 @@
 <title>Insert title here</title>
 </head>
 <body ng-app="myApp" ng-controller="getData">
-<table>
-			<tr>
-			<td>{{supplierdata.supplierId}}</td>
-			<td>{{supplierdata.supplierName}}</td>
-			<td>{{supplierdata.supplierAddress}}</td>
-			</tr>
-</table>
+<div class="container">
+<h1>Supplier Details</h1>
+<hr>
+  <br>
+  <div class="row">
+    <div class="col-sm-5">
+
+			<h3>Supplier Name: {{supplierdata.supplierName}}</h3>
+			<h3>Supplier Address: {{supplierdata.supplierAddress}}</h3>
+			
+</div>
+</div>
+</div>
 </body>
 </html>

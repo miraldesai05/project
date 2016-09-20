@@ -231,15 +231,15 @@
   <hr>
 </div> -->
 
-<div class="container">
-    <div class="row">
+ <div class="container">
+  <!--  <div class="row">
         <div class="row">
             <div class="col-md-9">
                 <h3>
                     Carousel Product Cart Slider</h3>
             </div>
             <div class="col-md-3">
-                <!-- Controls -->
+                Controls
                 <div class="controls pull-right hidden-xs">
                     <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
                         data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
@@ -248,7 +248,7 @@
             </div>
         </div>
         <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
+            Wrapper for slides
             <div class="carousel-inner">
                 <div class="item active">
                     <div class="row">
@@ -494,20 +494,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="row">
             <div class="col-md-9">
                 <h3>
-                    Carousel Product Cart Slider</h3>
+                    Products</h3>
             </div>
             <div class="col-md-3">
                 <!-- Controls -->
-                <div class="controls pull-right hidden-xs">
+               <!--  <div class="controls pull-right hidden-xs">
                     <a class="left fa fa-chevron-left btn btn-primary" href="#carousel-example-generic"
                         data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-primary" href="#carousel-example-generic"
                             data-slide="next"></a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
@@ -518,15 +518,15 @@
                         <div class="col-sm-4">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                    <img src="resources/images/download2.jpg" class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
                                             <h5>
-                                                Sample Product</h5>
+                                              Bascket ball </h5>
                                             <h5 class="price-text-color">
-                                                $199.99</h5>
+                                                RS.450</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
                                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -548,17 +548,20 @@
                         <div class="col-sm-4">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                    <img src="resources/images/CHTX38-2.jpg" class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
                                             <h5>
-                                                Product Example</h5>
+                                                Wooden Chwss Board</h5>
                                             <h5 class="price-text-color">
-                                                $249.99</h5>
+                                                Rs.300</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
+                                         <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="fa fa-star"></i>
                                         </div>
                                     </div>
                                     <div class="separator clear-left">
@@ -575,15 +578,15 @@
                         <div class="col-sm-4">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                    <img src="resources/images/slipstream-mandala-mahog.jpg" class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
                                             <h5>
-                                                Next Sample Product</h5>
+                                                Carrom Board</h5>
                                             <h5 class="price-text-color">
-                                                $149.99</h5>
+                                                Rs.500</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
                                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -604,7 +607,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
+              <!--   <div class="item">
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="col-item">
@@ -691,9 +694,9 @@
                                     <div class="clearfix">
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

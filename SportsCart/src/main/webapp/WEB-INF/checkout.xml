@@ -4,13 +4,13 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
                           
-    <var name="shippingAddress" class="com.niit.shoppingcart.model.ShippingAddress" />
-	<var name="billingAddress" class="com.niit.shoppingcart.model.BillingAddress" />
-	<var name="orderedItems" class="com.niit.shoppingcart.model.OrderedItems" />
-	<var name="orderDetail" class="com.niit.shoppingcart.model.OrderDetail" />
-	<var name="cart" class="com.niit.shoppingcart.model.Cart" />
-	<var name="cartItem" class="com.niit.shoppingcart.model.CartItem" />
-	<var name="checkoutDetails" class="com.niit.shoppingcart.CheckoutDetails"></var>
+    <var name="shippingAddress" class="com.sportscart.model.ShippingAddress" />
+	<var name="billingAddress" class="com.sportscart.model.BillingAddress" />
+	<var name="orderedItems" class="com.sportscart.model.OrderedItems" />
+	<var name="orderDetail" class="com.sportscart.model.OrderDetail" />
+	<var name="cart" class="com.sportscart.model.Cart" />
+	<var name="cartItem" class="com.sportscart.model.CartItem" />
+	<var name="checkoutDetails" class="com.sportscart.model.CheckoutDetails"></var>
 
 	<on-start>
 		<evaluate expression="flowController.initFlow()" result="flowScope.checkoutDetails" />
@@ -57,7 +57,7 @@
 <!-- 
 	<end-state id="orderConfirm" view="cart/orderConfirmed"/> -->	
 	<end-state id="toCartView" view="externalRedirect:contextRelative:/user/cart/" />
-	<end-state id="toHome" view="externalRedirect:contextRelative:/index" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
 
 	<global-transitions>
 		<transition on="cancel" to="toCartView" />

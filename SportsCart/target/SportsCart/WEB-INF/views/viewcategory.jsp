@@ -26,12 +26,19 @@
 <title>Insert title here</title>
 </head>
 <body ng-app="myApp" ng-controller="getData">
-<table>
-			<tr>
-			<td>{{categorydata.categoryId}}</td>
-			<td>{{categorydata.categoryName}}</td>
-			<td>{{categorydata.desc}}</td>
-			</tr>
-</table>
+<div class="container">
+<h1>Category Details</h1>
+<hr>
+  <br>
+  <div class="row">
+    <div class="col-sm-5">
+      
+		<h3>Category Name: {{categorydata.categoryName}}</h3>
+		<h3>Category Description: {{categorydata.desc}}</h3>
+			
+			
+ </div>
+  </div>
+ </div>	
 </body>
 </html>

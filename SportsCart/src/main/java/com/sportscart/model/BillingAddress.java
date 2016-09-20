@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table
+@Component
 public class BillingAddress implements Serializable{
 	/**
 	 * 

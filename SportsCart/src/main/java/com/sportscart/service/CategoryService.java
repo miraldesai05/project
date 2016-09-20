@@ -13,9 +13,9 @@ import com.sportscart.model.Category;
 @Service
 @Transactional
 public class CategoryService {
+	
 	@Autowired
 	public CategoryDAOImpl categoryDAOImpl;
-	
 	
 	public void addCategory(Category category){
 		

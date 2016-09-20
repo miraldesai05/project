@@ -4,7 +4,7 @@ import com.sportscart.model.BillingAddress;
 
 public interface BillingAddressDAO {
 
-	public void addBillingAddress(BillingAddressDAO billingAddress);
+	public void addBillingAddress(BillingAddress billingAddress);
 	public void delete(int billingAddressId);
 	public BillingAddress get(int billingAddressId);
 }

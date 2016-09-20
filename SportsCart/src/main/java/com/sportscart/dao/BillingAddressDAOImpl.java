@@ -19,7 +19,7 @@ public class BillingAddressDAOImpl implements BillingAddressDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void addBillingAddress(BillingAddressDAO billingAddress) {
+	public void addBillingAddress(BillingAddress billingAddress) {
 		
 		sessionFactory.getCurrentSession().saveOrUpdate(billingAddress);
 	}

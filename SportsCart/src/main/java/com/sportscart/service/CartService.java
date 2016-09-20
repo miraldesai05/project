@@ -14,6 +14,10 @@ public class CartService {
 	@Autowired
 	public CartDAOImpl cartDAOImpl;
 	
+	public void addCart(Cart cart)
+	{
+		cartDAOImpl.addCart(cart);
+	}
 	public Cart get(int userId)
 	{
 		return cartDAOImpl.get(userId);

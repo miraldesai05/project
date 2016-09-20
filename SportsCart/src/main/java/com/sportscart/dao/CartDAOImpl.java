@@ -21,6 +21,11 @@ public class CartDAOImpl implements CartDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	public void addCart(Cart cart) {
+		sessionFactory.getCurrentSession().saveOrUpdate(cart);
+		
+	}
+	
 	public Cart get(int userId) {
 		Session session=sessionFactory.openSession();
 		Criteria c = session.createCriteria(Cart.class);

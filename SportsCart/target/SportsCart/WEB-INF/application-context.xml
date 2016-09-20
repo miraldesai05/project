@@ -43,6 +43,14 @@
     class="org.springframework.orm.hibernate5.HibernateTransactionManager">
     <property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="shippingAddress" class="com.sportscart.model.ShippingAddress"></bean>
+	<bean id="billingAddress" class="com.sportscart.model.BillingAddress"></bean>
+	<bean id="cardDetail" class="com.sportscart.model.CardDetail"></bean>
+	<bean id="orderDetail" class="com.sportscart.model.OrderDetail"></bean>
+	<bean id="orderedItems" class="com.sportscart.model.OrderedItems"></bean>
+	<bean id="checkoutDetails" class="com.sportscart.model.CheckoutDetails"></bean>
+	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10240000" />

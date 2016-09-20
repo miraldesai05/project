@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,70 +23,70 @@
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" />
+					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" required="true"/>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="mobileNo">Mobile No:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" />
+					<form:input class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" required="true" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="address">Address:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="4" cols="20" />
+					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="4" cols="20" required="true" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="city">City:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" />
+					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" required="true" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="state">State:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" />
+					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" required="true"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="country">Country:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" />
+					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" required="true" />
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="email">Email:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter email" path="email" />
+					<form:input class="form-control col-lg-6" placeholder="Enter email" path="email" required="true"/>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="gender">Gender:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:radiobutton path="gender" value="Male" />Male
-					<form:radiobutton path="gender" value="Female" />Female
+					<form:radiobutton path="gender" value="Male" required="true" />Male
+					<form:radiobutton path="gender" value="Female" required="true" />Female
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="username">Username:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" />
+					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" required="true"/>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="password">Password:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:password class="form-control col-lg-6" placeholder="Enter password" path="password" />
+					<form:password class="form-control col-lg-6" placeholder="Enter password" path="password" required="true" />
 				</div>
 			</div>
 

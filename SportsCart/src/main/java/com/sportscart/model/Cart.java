@@ -1,5 +1,7 @@
 package com.sportscart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +13,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Cart {
+public class Cart implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cartId;
 	private int userId;
+	private double grandTotal;
+	private int noOfProducts;
 	@OneToOne(mappedBy="cart", cascade=CascadeType.ALL)
 	@JoinColumn(name="userId",insertable=false,updatable=false,nullable=false)
 	private User user;
@@ -39,6 +43,16 @@ public class Cart {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
-
+	public double getGrandTotal() {
+		return grandTotal;
+	}
+	public void setGrandTotal(double grandTotal) {
+		this.grandTotal = grandTotal;
+	}
+	public int getNoOfProducts() {
+		return noOfProducts;
+	}
+	public void setNoOfProducts(int noOfProducts) {
+		this.noOfProducts = noOfProducts;
+	}
 }

@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,9 +56,9 @@ table{
 		<div class="table-responsive">
 			<table class="table table-hover table-bordered">
 				<tr>
-					<th ng-click="orderByMe('cartItemId')">CartItem ID</th>
+					<!-- <th ng-click="orderByMe('cartItemId')">CartItem ID</th>
 					<th ng-click="orderByMe('cartId')">Cart Id</th>
-					<th ng-click="orderByMe('productId')">Product Id</th>
+					<th ng-click="orderByMe('productId')">Product Id</th> -->
 					<th ng-click="orderByMe('productName')">Product Name</th>
 					<th ng-click="orderByMe('price')">Price</th>
 					<th ng-click="orderByMe('quantity')">Quantity</th>
@@ -68,9 +69,9 @@ table{
 				</tr>
 
 				<tr ng-repeat="group in cartdata | filter:searchKeyword | orderBy:myOrderBy">
-					<td>{{group.cartItemId}}</td>
+					<!-- <td>{{group.cartItemId}}</td>
 					<td>{{group.cartId}}</td>
-					<td>{{group.productId}}</td>
+					<td>{{group.productId}}</td> -->
 					<td>{{group.productName}}</td>
 					<td>{{group.price}}</td>
 					<td>{{group.quantity}}</td>
