@@ -54,4 +54,10 @@ public class CartItemDAOImpl implements CartItemDAO{
 		
 	}
 
+	public void delete(int cartItemId) {
+		CartItem CartItemToDelete = new CartItem();
+		CartItemToDelete.setCartItemId(cartItemId);
+		sessionFactory.getCurrentSession().delete(CartItemToDelete);
+	}
+
 }	

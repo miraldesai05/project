@@ -5,7 +5,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,6 +56,20 @@ public class CartItemController {
 		
 		
 		return "redirect:/cartitemlist";							
+	}
+	
+	@RequestMapping("cartItem/remove/{cartItemId}")
+	public String removeCartItem(@PathVariable("cartItemId") int cartItemId, ModelMap model) throws Exception {
+
+		try {
+			cartItemService.delete(cartItemId);
+			model.addAttribute("message", "Successfully Added");
+		} catch (Exception e) {
+			model.addAttribute("message", e.getMessage());
+			e.printStackTrace();
+		}
+		// redirectAttrs.addFlashAttribute(arg0, arg1)
+		return "redirect:/cartitemlist";
 	}
 	
 	@RequestMapping("/cartitemlist")

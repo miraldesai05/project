@@ -35,7 +35,7 @@
  
 	<end-state id="welcome" view="home" />
 	
-	<end-state id="toHome" view="externalRedirect:contextRelative:home.jsp" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
 	<!-- <end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" /> -->
  
 	<!-- these events are available in every state-->

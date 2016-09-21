@@ -36,10 +36,12 @@ public class SubCategoryController {
 	}
 	
 	@RequestMapping(value = "/subcategory/add", method = RequestMethod.POST)
-	public String addSubCategory(@Valid@ModelAttribute("subcategory") SubCategory subcategory, BindingResult result) {
+	public String addSubCategory(@Valid@ModelAttribute("subcategory") SubCategory subcategory, BindingResult result,Model model) {
 		
 		if(result.hasErrors())
 		{
+			model.addAttribute("category", new Category());
+			model.addAttribute("categoryList", this.categoryService.listCategory());
 			return "subcategory";
 		}
 		else

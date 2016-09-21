@@ -12,6 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+.error {
+	color: #ff0000;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -49,6 +54,7 @@
 				<form:label class="control-label col-sm-4" path="productName">Product Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter product Name" path="productName" />
+					<form:errors path="productName" cssClass="error"></form:errors>
 				</div>
 			</div>
 			
@@ -56,6 +62,7 @@
 				<form:label class="control-label col-sm-4" path="productDesc">Product Description:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter product Description" path="productDesc" />
+					<form:errors path="productDesc" cssClass="error"></form:errors>
 				</div>
 			</div>
 

@@ -119,8 +119,8 @@ public class ProductController {
     	return "productlist";
     }
 	
-	@RequestMapping("/productdisplay{productId}")
-	public String productDisplay(@PathVariable("productId") int productId, Model model) {
+	@RequestMapping("/productdisplay")
+	public String productDisplay(Model model) {
 		System.out.println("productdisplay");
 		model.addAttribute("displayproduct", this.productService.listProduct());
 		return "productdisplay";
