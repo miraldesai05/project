@@ -14,14 +14,14 @@
 	
 	 <!-- if not specified the first view state is the starting state -->
 	<view-state id="start" view="user" model="flowScope.user">
-	   <transition on="submit" to="confirmdetails"/>
+	   <transition on="submit" to="validate"/>
 	</view-state>
  
-<!-- 	<action-state id="validate">
-		<evaluate expression="demohandler.validateDetails(user,messageContext)"></evaluate>
+	<action-state id="validate">
+		<evaluate expression="sportsHandler.validateDetails(user,messageContext)"></evaluate>
 		<transition on="success" to="confirmdetails" />
 		<transition on="failure" to="start" />
-	</action-state> -->
+	</action-state> 
  
 	<view-state id="confirmdetails" view="confirmdetails" model="flowScope.user">
 		<transition on="edit" to="start" />

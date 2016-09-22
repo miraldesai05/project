@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +23,9 @@ public class Product {
 	private String productName;
 	@NotEmpty(message="Product Description can not be null")
 	private String productDesc;
+	@Min(1)
 	private int price;
+	@Min(1)
 	private int quantity;
 	@Transient
 	private MultipartFile image;

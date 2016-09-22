@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -152,6 +154,41 @@ public class FlowController {
 		httpSession.setAttribute("noOfProducts", cart.getNoOfProducts());
 
 		return "success";
+	}
+	
+	public String validateShippingDetails(ShippingAddress shippingAddress,MessageContext messageContext){
+		String status = "success";
+		if(shippingAddress.getLine1().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"line1").defaultText("Line1 cannot be Empty").build());
+			status = "failure";
+		}
+		if(shippingAddress.getLine2().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"line2").defaultText("Line2 cannot be Empty").build());
+			status = "failure";
+		}
+		if(shippingAddress.getCity().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"city").defaultText("City cannot be Empty").build());
+			status = "failure";
+		}
+		if(shippingAddress.getState().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"state").defaultText("State cannot be Empty").build());
+			status = "failure";
+		}
+		if(shippingAddress.getCountry().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"country").defaultText("Country cannot be Empty").build());
+			status = "failure";
+		}
+		if(shippingAddress.getZipCode().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"zipCode").defaultText("Zipcode cannot be Empty").build());
+			status = "failure";
+		}
+		return status;
 	}
 
 }

@@ -21,9 +21,9 @@
 		<form:form commandName="user" role="form"
 			class="form-horizontal">
 			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
+				<form:label class="control-label col-sm-4" path="fullName">Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" value="${user.fullName}" />
+					<form:input class="form-control col-lg-6" placeholder="Enter name" path="fullName" value="${user.fullName}" />
 				</div>
 			</div>
 

@@ -62,7 +62,7 @@
 				<form:label class="control-label col-sm-4" path="productDesc">Product Description:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter product Description" path="productDesc" />
-					<form:errors path="productDesc" cssClass="error"></form:errors>
+					<form:errors path="productDesc" cssClass="error"></form:errors> 
 				</div>
 			</div>
 
@@ -70,6 +70,7 @@
 				<form:label class="control-label col-sm-4" path="price">Price:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter price" path="price" />
+					<form:errors path="price" class="error" /> 
 				</div>
 			</div>
 			
@@ -77,6 +78,7 @@
 				<form:label class="control-label col-sm-4" path="quantity">Quantity:</form:label>
 				<div class="col-sm-10 col-lg-6">
 					<form:input class="form-control col-lg-6" placeholder="Enter quantity" path="quantity" />
+					<form:errors path="quantity" class="error" />
 				</div>
 			</div>
 			

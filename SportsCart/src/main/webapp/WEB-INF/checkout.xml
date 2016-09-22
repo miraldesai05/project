@@ -17,9 +17,15 @@
 	</on-start>
 
 	<view-state id="checkout" view="cart/shippingAddress" model="shippingAddress">
-		<transition on="submitShippingAddress" to="shippingDetails" />
+		<transition on="submitShippingAddress" to="validateshippingDetails" />
 	</view-state>
 
+	<action-state id="validateshippingDetails">
+		<evaluate expression="flowController.validateShippingDetails(shippingAddress,messageContext)"></evaluate>
+		<transition on="success" to="shippingDetails" />
+		<transition on="failure" to="checkout" />
+	</action-state> 
+	
 	<action-state id="shippingDetails">
 		<evaluate
 			expression="flowController.addShippingAddress(flowScope.checkoutDetails,shippingAddress)"></evaluate>
@@ -56,7 +62,7 @@
 
 <!-- 
 	<end-state id="orderConfirm" view="cart/orderConfirmed"/> -->	
-	<end-state id="toCartView" view="externalRedirect:contextRelative:/user/cart/" />
+	<end-state id="toCartView" view="externalRedirect:contextRelative:/cartitemlist" />
 	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
 
 	<global-transitions>

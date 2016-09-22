@@ -5,11 +5,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,8 +50,18 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/product/add", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product") Product product, HttpServletRequest request) {
+	public String addProduct(@Valid @ModelAttribute("product") Product product,BindingResult result, HttpServletRequest request, Model model) {
 		
+		if(result.hasErrors())
+		{
+			model.addAttribute("subcategory", new SubCategory());
+			model.addAttribute("supplier", new Supplier());
+			model.addAttribute("subcategoryList", this.subcategoryService.listSubCategory());
+			model.addAttribute("supplierList", this.supplierService.listSupplier());
+			return "product";
+		}
+		else
+		{
 		SubCategory subcategory = subcategoryService.getByName(product.getSubCategory().getSubcategoryName());
 		subcategoryService.addSubCategory(subcategory);
 		
@@ -79,6 +91,7 @@ public class ProductController {
 			}
 		}
 		return "redirect:/productlist";
+		}
 		}
    	
 	@RequestMapping("product/remove/{productId}")
