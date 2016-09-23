@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
-<%@ include file="/WEB-INF/views/header.jsp"%>
+<%@ include file="/WEB-INF/views/header.jsp"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,19 +16,12 @@
 	var myApp = angular.module('myApp', []);
 	myApp.controller('getData', function($scope, $http, $location) {
 		/* $scope.searchKeyword=location.search.substr(15); */
-		$scope.cartdata = ${cartItemList};
+		$scope.cartdata = ${orderedItemList};
 		//alert($scope.categorydata);
 		
 		$scope.orderByMe = function(group) {
         $scope.myOrderBy = group;
     }	
-		$scope.totalPrice = function(){
-			var total = 0;
-			for(count=0;count<$scope.cartdata.length;count++){
-				total += $scope.cartdata[count].price*$scope.cartdata[count].quantity;
-			}
-			return total;
-		}
 	});
 </script>
 <style>
@@ -44,7 +37,7 @@ table{
 </head>
 <body ng-app="myApp" ng-controller="getData">
 	<div class="container">
-		<h2>Cart Item List</h2>
+		<h2>Ordered Item List</h2>
 		<div class="row"> <!-- search box row -->
 		<div class="container">
 			<form role="form" method="post" >
@@ -72,7 +65,7 @@ table{
 					<th ng-click="orderByMe('totalPrice')">Total Price</th>
 					<!-- <th>View Details</th>
 					<th>Edit</th> -->
-					<th>Delete</th> 
+					<!-- <th>Delete</th>  -->
 				</tr>
 
 				<tr ng-repeat="group in cartdata | filter:searchKeyword | orderBy:myOrderBy">
@@ -86,11 +79,10 @@ table{
 					<td>{{group.totalPrice}}</td>
 				<%-- 	<td><a href="<c:url value='category/view/{{group.categoryId}}' />">View</a></td>
 					<td><a href="<c:url value='category--{{group.categoryId}}' />">Edit</a></td> --%>
-					<td><a href="<c:url value='cartItem/remove/{{group.cartItemId}}' />">Delete</a></td>  
+					<%-- <td><a href="<c:url value='cartItem/remove/{{group.cartItemId}}' />">Delete</a></td>   --%>
 				</tr>	
 			</table>
 			<div>Total Price: {{totalPrice()}}</div>
-			<a href="member">Checkout</a>
 		</div>
 	</div>
 

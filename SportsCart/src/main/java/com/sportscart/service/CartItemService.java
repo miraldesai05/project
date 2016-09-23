@@ -36,4 +36,13 @@ public class CartItemService {
 	{
 		cartItemDAOImpl.delete(cartItemId);
 	}
+	public void cartUpdate(int cartId)
+	{
+		cartItemDAOImpl.cartUpdate(cartId);
+	}
+	public List<CartItem> getListTrue(int cartId)
+	{
+		return cartItemDAOImpl.getListTrue(cartId);
+	}
+	
 }

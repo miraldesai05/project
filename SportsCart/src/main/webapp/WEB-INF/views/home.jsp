@@ -139,6 +139,9 @@
 				</c:forEach>  			
 		</ul>
         <ul class="nav navbar-nav navbar-right">
+        <sec:authorize access="isAuthenticated()">
+        <li><a href="ordereditemlist">Order Placed</a></li>
+        </sec:authorize>
        <li><a href="cartitemlist"><span class="glyphicon glyphicon-shopping-cart"></span> Cart<sec:authorize access="isAuthenticated()">({{cartdata.length}})</sec:authorize></a></li>      
       </ul>
 	</div><!-- /.nav-collapse -->

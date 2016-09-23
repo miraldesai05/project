@@ -23,6 +23,7 @@ public class CartItem implements Serializable {
 	private int price;
 	private int quantity;
 	private double totalPrice;
+	private boolean flag;
 	@ManyToOne
 	@JoinColumn(name="cartId",insertable=false,updatable=false,nullable=false)
 	private Cart cart;
@@ -71,6 +72,12 @@ public class CartItem implements Serializable {
 	}
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+	public boolean isFlag() {
+		return flag;
+	}
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 	public Cart getCart() {
 		return cart;

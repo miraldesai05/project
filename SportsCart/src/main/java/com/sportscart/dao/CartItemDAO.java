@@ -11,4 +11,6 @@ public interface CartItemDAO {
 	public CartItem get(int cartItemId);
 	public List<CartItem> getList(int cartId);
 	public void delete(int cartItemId);
+	public void cartUpdate(int cartId);
+	public List<CartItem> getListTrue(int cartId);
 }

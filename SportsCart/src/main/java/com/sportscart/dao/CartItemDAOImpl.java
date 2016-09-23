@@ -3,6 +3,7 @@ package com.sportscart.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -37,6 +38,7 @@ public class CartItemDAOImpl implements CartItemDAO{
 		Session session=sessionFactory.openSession();
 		Criteria c = session.createCriteria(CartItem.class);
 		c.add(Restrictions.eq("cartItemId", cartItemId));
+		c.add(Restrictions.eq("flag", false));
 		@SuppressWarnings("unchecked")
 		List<CartItem> cartItem = c.list();
 		session.flush();
@@ -59,5 +61,25 @@ public class CartItemDAOImpl implements CartItemDAO{
 		CartItemToDelete.setCartItemId(cartItemId);
 		sessionFactory.getCurrentSession().delete(CartItemToDelete);
 	}
+
+	public void cartUpdate(int cartId) {
+		String hql = "update CartItem set flag = true" + "where cartID=" + "'" + cartId + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();		
+	}
+
+	public List<CartItem> getListTrue(int cartId) {
+		Session session=sessionFactory.openSession();
+		Criteria c = session.createCriteria(CartItem.class);
+		c.add(Restrictions.eq("cartId", cartId));
+		c.add(Restrictions.eq("flag", true));
+		@SuppressWarnings("unchecked")
+		List<CartItem> cartItem = (List<CartItem>)(c.list());
+		session.flush();
+		return cartItem;
+	}
+	
+	
+	
 
 }	

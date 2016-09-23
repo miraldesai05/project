@@ -51,7 +51,7 @@ public class CartItemController {
 		cartItem.setPrice(price);
 		
 		cartItem.setTotalPrice(price*cartItem.getQuantity());
-		
+		cartItem.setFlag(false);
 		cartItemService.addToCart(cartItem);
 		
 		
@@ -83,6 +83,21 @@ public class CartItemController {
 		int cartId=cartService.get(userId).getCartId();
 		model.addAttribute("cartItemList", this.cartItemService.getList(cartId));
 		return "cartitemlist";
+	}
+	
+	@RequestMapping("/ordereditemlist")
+	public String Update(Model model)
+	{
+		
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		
+		int userId=userService.getByName(username).getUserId();
+		
+		int cartId=cartService.get(userId).getCartId();
+		cartItemService.cartUpdate(cartId);
+		model.addAttribute("orderedItemList", this.cartItemService.getListTrue(cartId));
+		return "ordereditemlist";
 	}
 	
 }
