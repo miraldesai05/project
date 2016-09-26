@@ -21,77 +21,108 @@
 		<form:form commandName="user" role="form"
 			class="form-horizontal">
 			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
+				<form:label class="control-label col-sm-4" path="fullName">Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" required="true"/>
+					<form:input class="form-control col-lg-6" placeholder="Enter name" path="fullName" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('fullName')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="mobileNo">Mobile No:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" required="true" />
+					<%-- <form:errors path="mobileNo" class="error" /> --%>
+					<form:input pattern="[0-9]{10}" title="Enter a 10 digit number" class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('mobileNo')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="address">Address:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="4" cols="20" required="true" />
+					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="4" cols="20" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('address')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="city">City:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" required="true" />
+					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('city')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="state">State:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" required="true"/>
+					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('state')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="country">Country:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" required="true" />
+					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('country')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="email">Email:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter email" path="email" required="true"/>
+					<form:input type="email" class="form-control col-lg-6" placeholder="Enter email" path="email" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('email')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="gender">Gender:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:radiobutton path="gender" value="Male" required="true" />Male
-					<form:radiobutton path="gender" value="Female" required="true" />Female
+					<form:radiobutton path="gender" value="Male" />Male
+					<form:radiobutton path="gender" value="Female" />Female
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('gender')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="username">Username:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" required="true"/>
+					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('username')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<form:label class="control-label col-sm-4" path="password">Password:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:password class="form-control col-lg-6" placeholder="Enter password" path="password" required="true" />
+					<form:password pattern=".{6,8}" title="Six to eight characters" class="form-control col-lg-6" placeholder="Enter password" path="password" />
+					<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('password')}" var="err">
+					  <div><span style="color: red">${err.text}</span></div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_submit" class="btn btn-success" type="submit" value="Submit">
 				</div>
 			</div>

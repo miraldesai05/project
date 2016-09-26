@@ -21,8 +21,14 @@
 		
 		$scope.orderByMe = function(group) {
         $scope.myOrderBy = group;
-    }
-
+    }	
+		$scope.totalPrice = function(){
+			var total = 0;
+			for(count=0;count<$scope.cartdata.length;count++){
+				total += $scope.cartdata[count].price*$scope.cartdata[count].quantity;
+			}
+			return total;
+		}
 	});
 </script>
 <style>
@@ -60,12 +66,13 @@ table{
 					<th ng-click="orderByMe('cartId')">Cart Id</th>
 					<th ng-click="orderByMe('productId')">Product Id</th> -->
 					<th ng-click="orderByMe('productName')">Product Name</th>
+					<th ng-click="orderByMe('image')">Image</th>
 					<th ng-click="orderByMe('price')">Price</th>
 					<th ng-click="orderByMe('quantity')">Quantity</th>
 					<th ng-click="orderByMe('totalPrice')">Total Price</th>
 					<!-- <th>View Details</th>
-					<th>Edit</th>
-					<th>Delete</th> -->
+					<th>Edit</th> -->
+					<th>Delete</th> 
 				</tr>
 
 				<tr ng-repeat="group in cartdata | filter:searchKeyword | orderBy:myOrderBy">
@@ -73,16 +80,16 @@ table{
 					<td>{{group.cartId}}</td>
 					<td>{{group.productId}}</td> -->
 					<td>{{group.productName}}</td>
+					<td><img style="width:40px;height:40px" src="resources/images/{{group.productId}}.jpg"/></td>
 					<td>{{group.price}}</td>
 					<td>{{group.quantity}}</td>
 					<td>{{group.totalPrice}}</td>
 				<%-- 	<td><a href="<c:url value='category/view/{{group.categoryId}}' />">View</a></td>
-					<td><a href="<c:url value='category--{{group.categoryId}}' />">Edit</a></td>
-					<td><a href="<c:url value='category/remove/{{group.categoryId}}' />">Delete</a></td>  --%>
-				</tr>
-
+					<td><a href="<c:url value='category--{{group.categoryId}}' />">Edit</a></td> --%>
+					<td><a href="<c:url value='cartItem/remove/{{group.cartItemId}}' />">Delete</a></td>  
+				</tr>	
 			</table>
-			
+			<div>Total Price: {{totalPrice()}}</div>
 			<a href="member">Checkout</a>
 		</div>
 	</div>

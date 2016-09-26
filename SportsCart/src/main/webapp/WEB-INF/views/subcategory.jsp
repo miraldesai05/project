@@ -59,7 +59,7 @@
 			</div>
 			
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 					<c:if test="${!empty subcategory.subcategoryName}">
 						<input class="btn btn-success" type="submit" value="Edit Subcategory">
 					</c:if>
@@ -67,7 +67,7 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 					<c:if test="${empty subcategory.subcategoryName}">
 						<input class="btn btn-success" type="submit" value="Add Subcategory">
 					</c:if>

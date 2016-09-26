@@ -25,7 +25,7 @@ public class Product {
 	private String productDesc;
 	@Min(1)
 	private int price;
-	@Min(value=0, message="The product quantity must not be less than zero")
+	@Min(1)
 	private int quantity;
 	@Transient
 	private MultipartFile image;

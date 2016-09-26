@@ -191,4 +191,39 @@ public class FlowController {
 		return status;
 	}
 
+	public String validateBillingingDetails(BillingAddress billingAddress,MessageContext messageContext){
+		String status = "success";
+		if(billingAddress.getLine1().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"line1").defaultText("Line1 cannot be Empty").build());
+			status = "failure";
+		}
+		if(billingAddress.getLine2().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"line2").defaultText("Line2 cannot be Empty").build());
+			status = "failure";
+		}
+		if(billingAddress.getCity().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"city").defaultText("City cannot be Empty").build());
+			status = "failure";
+		}
+		if(billingAddress.getState().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"state").defaultText("State cannot be Empty").build());
+			status = "failure";
+		}
+		if(billingAddress.getCountry().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"country").defaultText("Country cannot be Empty").build());
+			status = "failure";
+		}
+		if(billingAddress.getZipCode().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"zipCode").defaultText("Zipcode cannot be Empty").build());
+			status = "failure";
+		}
+		return status;
+	}
+
 }

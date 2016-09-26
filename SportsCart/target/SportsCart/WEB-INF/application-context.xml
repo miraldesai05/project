@@ -50,6 +50,9 @@
 	<bean id="orderDetail" class="com.sportscart.model.OrderDetail"></bean>
 	<bean id="orderedItems" class="com.sportscart.model.OrderedItems"></bean>
 	<bean id="checkoutDetails" class="com.sportscart.model.CheckoutDetails"></bean>
+	<bean id="user" class="com.sportscart.model.User"></bean>
+	<bean id="cart" class="com.sportscart.model.Cart"></bean>
+	<bean id="product" class="com.sportscart.model.Product"></bean>
 	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

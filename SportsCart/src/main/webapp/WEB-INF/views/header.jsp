@@ -29,6 +29,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
        <li><a href="/SportsCart/">Home</a></li>
+       <li><a href="aboutus">About Us</a></li>
        <sec:authorize access="hasRole('ROLE_ADMIN')">
        <li><a href="categories">Add Category</a></li>
         <li><a href="subcategories">Add Subcategory</a></li>

@@ -50,7 +50,7 @@
 		</div>
 		
 		<div class="form-group">
-        <div class="col-sm-offset-4 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-2">
 		<c:if test="${!empty supplier.supplierName}">
 		<input class="btn btn-success" type="submit" value="Edit Supplier">
 		</c:if>
@@ -58,7 +58,7 @@
 		</div>
 		
 		<div class="form-group">
-        <div class="col-sm-offset-4 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-2">
 		<c:if test="${empty supplier.supplierName}">
 		<input class="btn btn-success" type="submit" value="Add Supplier">
 		</c:if>

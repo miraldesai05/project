@@ -59,6 +59,12 @@ public class SportsController {
 		return "categoryli";
 	}
 	
+	@RequestMapping("/aboutus")
+	public String getAboutus()
+	{
+		return "aboutus";
+	}
+	
 	/*@RequestMapping("/login")
 	public String getLogin(){
 		return "login";

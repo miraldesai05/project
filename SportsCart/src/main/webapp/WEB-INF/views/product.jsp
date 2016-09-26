@@ -90,7 +90,7 @@
 			</div> 
 			
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 					<c:if test="${!empty product.productName}">
 						<input class="btn btn-success" type="submit" value="Edit Product">
 					</c:if>
@@ -98,7 +98,7 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 					<c:if test="${empty product.productName}">
 						<input class="btn btn-success" type="submit" value="Add Product">
 					</c:if>

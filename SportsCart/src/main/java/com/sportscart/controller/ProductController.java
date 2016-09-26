@@ -135,7 +135,7 @@ public class ProductController {
 	@RequestMapping("/productdisplay")
 	public String productDisplay(Model model) {
 		System.out.println("productdisplay");
-		model.addAttribute("displayproduct", this.productService.listProduct());
+		model.addAttribute("productList", this.productService.listProduct());
 		return "productdisplay";
 	}
 	

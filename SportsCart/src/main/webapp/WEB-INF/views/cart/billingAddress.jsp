@@ -36,43 +36,61 @@
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Line 1</label>
 							<div class="col-sm-10">
-							<form:errors path="line1" class="error"/>
+							<%-- <form:errors path="line1" class="error"/> --%>
 								<form:input path="line1" type="text" autofocus="true" class="form-control"/>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('line1')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Line 2</label>
 							<div class="col-sm-10">
-							<form:errors path="line2" class="error"/>
+							<%-- <form:errors path="line2" class="error"/> --%>
 								<form:input path="line2" type="text" class="form-control" />
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('line2')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">City</label>
 							<div class="col-sm-10">
-							<form:errors path="city" class="error"/>
+							<%-- <form:errors path="city" class="error"/> --%>
 								<form:input path="city" type="text" class="form-control"/>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('city')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">State</label>
 							<div class="col-sm-10">
-							<form:errors path="state" class="error"/>
+							<%-- <form:errors path="state" class="error"/> --%>
 								<form:input path="state" type="text" class="form-control"/>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('state')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Country</label>
 							<div class="col-sm-10">
-							<form:errors path="country" class="error"/>
+							<%-- <form:errors path="country" class="error"/> --%>
 								<form:input path="country" type="text" class="form-control"/>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('country')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Zip code</label>
 							<div class="col-sm-10">
-							<form:errors path="zipCode" class="error"/>
+							<%-- <form:errors path="zipCode" class="error"/> --%>
 								<form:input path="zipCode" type="text" pattern="^[1-9][0-9]{5}$" title="Enter a 6 digit pincode" class="form-control" />
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('zipCode')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="col-md-offset-3">

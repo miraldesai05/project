@@ -21,9 +21,9 @@
 		<form:form commandName="user" role="form"
 			class="form-horizontal">
 			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
+				<form:label class="control-label col-sm-4" path="fullName">Name:</form:label>
 				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" value="${user.fullName}" />
+					<form:input class="form-control col-lg-6" placeholder="Enter name" path="fullName" value="${user.fullName}" />
 				</div>
 			</div>
 
@@ -84,13 +84,13 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_edit" class="btn btn-success" type="submit" value="Edit">
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_submit" class="btn btn-success" type="submit" value="Confirm Details">
 				</div>
 			</div>

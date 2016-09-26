@@ -84,13 +84,13 @@
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_edit" class="btn btn-success" type="submit" value="Edit">
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
+				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_submit" class="btn btn-success" type="submit" value="Confirm Details">
 				</div>
 			</div>

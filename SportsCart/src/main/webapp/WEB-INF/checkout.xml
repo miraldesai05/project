@@ -32,11 +32,16 @@
 		<transition on="success" to="viewBillingDetails" />
 	</action-state>
 
-	<view-state id="viewBillingDetails" view="cart/billingAddress"
-		model="billingAddress">
-		<transition on="submitBillingAddress" to="billingDetails" />
+	<view-state id="viewBillingDetails" view="cart/billingAddress" model="billingAddress">
+		<transition on="submitBillingAddress" to="validatebillingDetails" />
 	</view-state>
 
+	<action-state id="validatebillingDetails">
+		<evaluate expression="flowController.validateBillingingDetails(billingAddress,messageContext)"></evaluate>
+		<transition on="success" to="billingDetails" />
+		<transition on="failure" to="viewBillingDetails" />
+	</action-state> 
+	
 	<action-state id="billingDetails">
 		<evaluate
 			expression="flowController.addBillingAddress(flowScope.checkoutDetails,billingAddress)"></evaluate>
