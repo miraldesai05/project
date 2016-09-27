@@ -7,19 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+p{
+color: #4CAF50;
+}
+</style>
 <body>
 <div class="container">
 <h2>About Us</h2>
 <p>
-SportsCart provides a platform for customers to buy sports amd fitness products. 
+SportsCart provides a platform for customers to buy sports and fitness products. 
 </p>
 <p>
 We provide End-to-End offerings to sports enthusiasts through SportsCart and step to ensure they get the best 
-quality coaching, playing experiences, rewards and recognition and best products and infrastructue.
+quality coaching, playing experiences, rewards and recognition and best products and infrastructure.
 </p>
 <h3>Mission</h3>
 <p>
-To enhance the online shopping experice by providing a simple, memorable and easy solution to your online shopping 
+To enhance the online shopping experience by providing a simple, memorable and easy solution to your online shopping 
 needs. Thereby, creating a platform for strong and lengthy relationship based on Sports.
 </p>
 <h3>Vision</h3>

@@ -33,6 +33,14 @@ th {
 table{
 	width: 100%;
 }
+.glyphicon-edit
+{
+color: blue;
+}
+.glyphicon-trash
+{
+color: red; 
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -70,9 +78,9 @@ table{
 					<td>{{group.categoryId}}</td>
 					<td>{{group.subcategoryName}}</td>
 					<td>{{group.subcategoryDesc}}</td>
-					<td><a href="<c:url value='subcategory/view/{{group.subcategoryId}}' />">View</a></td>
-					<td><a href="<c:url value='subcategory/edit/{{group.subcategoryId}}' />">Edit</a></td>
-					<td><a href="<c:url value='subcategory/remove/{{group.subcategoryId}}' />">Delete</a></td>
+					<td><a href="<c:url value='subcategory/view/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<td><a href="<c:url value='subcategory/edit/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td><a href="<c:url value='subcategory/remove/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 
 			</table>

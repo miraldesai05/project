@@ -33,6 +33,14 @@ th {
 table{
 	width: 100%;
 }
+.glyphicon-edit
+{
+color: blue;
+}
+.glyphicon-trash
+{
+color: red; 
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -61,9 +69,9 @@ table{
 					<th ng-click="orderByMe('supplierId')">Supplier Id</th>
 					<th ng-click="orderByMe('productName')">Product Name</th>
 					<th ng-click="orderByMe('productDesc')">Product Description</th>
-					<th ng-click="orderByMe('price')">Price</th>
-					<th ng-click="orderByMe('quantity')">Quantity</th>
 					<th ng-click="orderByMe('image')">Image</th>
+					<th ng-click="orderByMe('price')">Price</th>
+					<th ng-click="orderByMe('quantity')">Quantity</th>	
 					<th>View Details</th>
 					<th>Edit</th>
 					<th>Delete</th>
@@ -75,12 +83,12 @@ table{
 					<td>{{group.supplierId}}</td>
 					<td>{{group.productName}}</td>
 					<td>{{group.productDesc}}</td>
+					<td><img style="width:40px;height:40px" src="{{group.image}}"/></td>
 					<td>{{group.price}}</td>
 					<td>{{group.quantity}}</td>
-					<td><img style="width:40px;height:40px" src="{{group.image}}"/></td>
-					<td><a href="<c:url value='/productview{{group.productId}}' />">View</a></td>
-					<td><a href="<c:url value='product/edit/{{group.productId}}' />">Edit</a></td>
-					<td><a href="<c:url value='product/remove/{{group.productId}}' />">Delete</a></td>
+					<td><a href="<c:url value='/productview{{group.productId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<td><a href="<c:url value='product/edit/{{group.productId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td><a href="<c:url value='product/remove/{{group.productId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 
 			</table>

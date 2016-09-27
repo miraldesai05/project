@@ -39,7 +39,7 @@
 	<action-state id="validatebillingDetails">
 		<evaluate expression="flowController.validateBillingingDetails(billingAddress,messageContext)"></evaluate>
 		<transition on="success" to="billingDetails" />
-		<transition on="failure" to="checkout" />
+		<transition on="failure" to="viewBillingDetails" />
 	</action-state> 
 	
 	<action-state id="billingDetails">

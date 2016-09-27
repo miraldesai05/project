@@ -43,19 +43,22 @@
 	</action-state> 
 	
 	<action-state id="billingDetails">
-		<evaluate
-			expression="flowController.addBillingAddress(flowScope.checkoutDetails,billingAddress)"></evaluate>
+		<evaluate expression="flowController.addBillingAddress(flowScope.checkoutDetails,billingAddress)"></evaluate>
 		<transition on="success" to="viewCardDetail" />
 	</action-state>
 
-	<view-state id="viewCardDetail" view="cart/cardDetail"
-		model="cardDetail">
-		<transition on="confirmCheckout" to="paymentDetails" />
+	<view-state id="viewCardDetail" view="cart/cardDetail" model="cardDetail">
+		<transition on="confirmCheckout" to="validatepaymentDetails" />
 	</view-state>
+	
+	<action-state id="validatepaymentDetails">
+		<evaluate expression="flowController.validateCardDetails(cardDetail,messageContext)"></evaluate>
+		<transition on="success" to="paymentDetails" />
+		<transition on="failure" to="viewCardDetail" />
+	</action-state> 
 
 	<action-state id="paymentDetails">
-		<evaluate
-			expression="flowController.addCardDetails(flowScope.checkoutDetails,cardDetail)"></evaluate>
+		<evaluate expression="flowController.addCardDetails(flowScope.checkoutDetails,cardDetail)"></evaluate>
 		<transition on="success" to="orderConfirm" />
 	</action-state>
 

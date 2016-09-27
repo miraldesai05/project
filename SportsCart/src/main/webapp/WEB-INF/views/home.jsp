@@ -16,18 +16,10 @@
   <link rel="stylesheet" href="resources/css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <!--   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
  <script type="text/javascript" src="jquery.min.js"></script>
  <script type="text/javascript" src="bootstrap.min.js"></script> -->
  <script>
- var myApp = angular.module('myApp', []);
-	myApp.controller('getData', function($scope, $http, $location) {
-		/* $scope.searchKeyword=location.search.substr(15); */
-		$scope.cartdata = ${cartItemList};
-		$scope.productdata = ${productList};
-		//alert($scope.categorydata);
-	});
  $(document).ready(function(){
      $(window).scroll(function () {
             if ($(this).scrollTop() > 50) {
@@ -71,6 +63,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <img src="resources/images/Capture.PNG" alt="Image">
       <a class="navbar-brand" href="#">SportsCart</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -95,7 +88,7 @@
         <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-        <li><a href="<c:url value="/logout" />">Logout</a></li>
+        <li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </sec:authorize>
       </ul>
     </div>
@@ -104,7 +97,7 @@
 </br>
 </br>
 </br>
- <nav class="navbar navbar-custom">
+ <nav class="navbar navbar-inverse">
     <div class="navbar-header">
     	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
@@ -136,16 +129,16 @@
 				</c:forEach>  			
 		</ul>
         <ul class="nav navbar-nav navbar-right">
-        <sec:authorize access="isAuthenticated()">
+       <%--  <sec:authorize access="isAuthenticated()">
         <li><a href="ordereditemlist">Ordered Items</a></li>
-        </sec:authorize>
+        </sec:authorize> --%>
        <li><a href="cartitemlist"><span class="glyphicon glyphicon-shopping-cart"></span> Cart<sec:authorize access="isAuthenticated()">({{cartdata.length}})</sec:authorize></a></li>      
       </ul>
 	</div><!-- /.nav-collapse -->
   </nav>
 <div class="container-fluid"> 
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-8 col-xs-8 col-md-8">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	
       <!-- Indicators -->
@@ -190,26 +183,29 @@
 </div>
 <hr>
 </div>
+<%-- <%@ include file="/WEB-INF/views/productdisplay.jsp"%> --%>
 <div class="container">
     <div class="row">
             <div class="col-md-9">
                 <h3>
-                    Carousel Product Cart Slider</h3>
+                    Products</h3>
             </div>
             </div>
             <div class="row">
-             <div class="col-sm-4" ng-repeat="group in productdata">
+            <c:forEach items="${productList}" var="product">
+             <div class="col-sm-4">
+      
                             <div class="col-item">
                                 <div class="photo">
-                                    <img src="{{group.image}}" class="img-responsive" alt="" />
+                                    <img src="resources/images/${product.productId}.jpg" class="img-responsive" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
                                             <h5>
-                                                {{group.productName}}</h5>
+                                                ${product.productName}</h5>
                                             <h5 class="price-text-color">
-                                                Rs. {{group.price}}</h5>
+                                                Rs. ${product.price}</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
                                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -229,7 +225,9 @@
                                     </div>
                                 </div>
                             </div>
+
              </div>
+</c:forEach>
 			</div>
 </div>
 
@@ -317,6 +315,15 @@
       </div>
     </div>
   </div>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script>
+var myApp = angular.module('myApp', []);
+	myApp.controller('getData', function($scope, $http, $location) {
+		/* $scope.searchKeyword=location.search.substr(15); */
+		$scope.cartdata = ${cartItemList};
+		//alert($scope.categorydata);
+		
+    });	
+</script>
 </body>
 </html>

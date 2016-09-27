@@ -16,7 +16,7 @@
 <body>
 <div class="container">
 		<h2>Registration</h2>
-		<a href="${flowExecutionUrl}&_eventId_home">Home</a>
+		<a class="btn btn-primary" href="${flowExecutionUrl}&_eventId_home">Home</a>
 		<c:url var="addAction" value="/user/add"></c:url>
 		<form:form commandName="user" role="form"
 			class="form-horizontal">

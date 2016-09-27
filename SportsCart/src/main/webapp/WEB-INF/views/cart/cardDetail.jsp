@@ -37,14 +37,17 @@
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Card Number</label>
 							<div class="col-sm-5">
-							<form:errors path="cardNumber" class="error"/>
-								<form:input path="cardNumber" autofocus="true" type="text" pattern="^[0-9]+$" title="Enter a valid card no" required="true" class="form-control" />
+							<%-- <form:errors path="cardNumber" class="error"/> --%>
+								<form:input path="cardNumber" autofocus="true" type="text" pattern="^[0-9]+$" title="Enter a valid card no" class="form-control" />
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('cardNumber')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Expiry Month</label>
 							<div class="col-sm-2">
-							<form:errors path="expiryMonth" class="error"/>
+							<%-- <form:errors path="expiryMonth" class="error"/> --%>
 								<form:select path="expiryMonth" id="" class="form-control">
 									<option value="" disabled selected>MM</option>
 									<form:option value="1">Jan</form:option>
@@ -60,12 +63,15 @@
 									<form:option value="11">Nov</form:option>
 									<form:option value="12">Dec</form:option>
 								</form:select>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('expiryMonth')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Expiry Year</label>
 							<div class="col-sm-2">
-							<form:errors path="expiryYear" class="error"/>
+							<%-- <form:errors path="expiryYear" class="error"/> --%>
 								<form:select path="expiryYear" name="" id=""
 									class="form-control">
 									<option value="" disabled selected>Year</option>
@@ -82,20 +88,29 @@
 									<form:option value="26">26</form:option>
 									<form:option value="27">27</form:option>
 								</form:select>
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('expiryYear')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">CVV Number</label>
 							<div class="col-sm-5">
-							<form:errors path="cvNumber" class="error"/>
+							<%-- <form:errors path="cvNumber" class="error"/> --%>
 								<form:input path="cvNumber" type="text" pattern="^[0-9]{4}$" tilte="Enter a 4 digit ccv" class="form-control" />
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('cvNumber')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Name On Card</label>
 							<div class="col-sm-5">
-							<form:errors path="nameOnCard" class="error"/>
+							<%-- <form:errors path="nameOnCard" class="error"/> --%>
 								<form:input path="nameOnCard" type="text" class="form-control" />
+								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('nameOnCard')}" var="err">
+					  			<div><span style="color: red">${err.text}</span></div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="col-md-offset-3">

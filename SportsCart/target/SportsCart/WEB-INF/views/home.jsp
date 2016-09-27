@@ -95,7 +95,7 @@
         <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-        <li><a href="<c:url value="/logout" />">Logout</a></li>
+        <li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </sec:authorize>
       </ul>
     </div>
@@ -137,7 +137,7 @@
 		</ul>
         <ul class="nav navbar-nav navbar-right">
         <sec:authorize access="isAuthenticated()">
-        <li><a href="ordereditemlist">Order Placed</a></li>
+        <li><a href="ordereditemlist">Ordered Items</a></li>
         </sec:authorize>
        <li><a href="cartitemlist"><span class="glyphicon glyphicon-shopping-cart"></span> Cart<sec:authorize access="isAuthenticated()">({{cartdata.length}})</sec:authorize></a></li>      
       </ul>
@@ -185,16 +185,6 @@
       
     </div>
     <br>
-   <div class="container">
-  <div class="row">
-    <div class="col-sm-6"> 
-      <img data-toggle="modal" data-target="#product" src="resources/images/iplb1.jpg" alt=Image width=600px height=250px>
-   </div>
-    <div class="col-sm-6"> 
-       <img data-toggle="modal" data-target="#product" src="resources/images/hikingb2up.jpg" alt=Image width=600px height=250px>
-    </div>
-    </div>
-    </div>
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>    
   </div>
 </div>
@@ -204,11 +194,11 @@
     <div class="row">
             <div class="col-md-9">
                 <h3>
-                    Carousel Product Cart Slider</h3>
+                    Products</h3>
             </div>
             </div>
             <div class="row">
-             <div ng-repeat="group in productdata" class="col-sm-3">
+             <div class="col-sm-4" ng-repeat="group in productdata">
                             <div class="col-item">
                                 <div class="photo">
                                     <img src="{{group.image}}" class="img-responsive" alt="" />
@@ -219,7 +209,7 @@
                                             <h5>
                                                 {{group.productName}}</h5>
                                             <h5 class="price-text-color">
-                                                {{group.price}}</h5>
+                                                Rs. {{group.price}}</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
                                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -229,9 +219,11 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        	<i class="fa fa-shopping-cart"></i><a href="cartitem/add?productId={{group.productId}}" class="hidden-sm">Add to cart</a>
+										</p>
                                         <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                            <i class="fa fa-list"></i><a href="<c:url value='/productview{{group.productId}}' />" class="hidden-sm">More details</a>
+                                        </p>
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -326,127 +318,5 @@
     </div>
   </div>
 
-<!-- Modal -->
-  <div class="modal fade" id="signup" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Registration</h2>
-        </div>
-        <div class="modal-body">
-        <c:url var="addAction" value="/user/add"></c:url>
-		<form:form action="${addAction}" commandName="user" role="form"
-			class="form-horizontal">
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="fullName">Full name:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter full name" path="fullName" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="mobileNo">Mobile No:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter mobile no" path="mobileNo" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="address">Address:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:textarea class="form-control col-lg-6" placeholder="Enter address" path="address" rows="2" cols="20" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="city">City:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter city" path="city" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="state">State:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter state" path="state" />
-				</div>
-			</div>
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="country">Country:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter country" path="country" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="email">Email:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter email" path="email" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="gender">Gender:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:radiobutton path="gender" value="Male" />Male
-					<form:radiobutton path="gender" value="Female" />Female
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="username">Username:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:input class="form-control col-lg-6" placeholder="Enter username" path="username" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<form:label class="control-label col-sm-4" path="password">Password:</form:label>
-				<div class="col-sm-10 col-lg-6">
-					<form:password class="form-control col-lg-6" placeholder="Enter password" path="password" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-sm-offset-4 col-sm-10">
-						<input class="btn btn-success" type="submit" value="Submit">
-				</div>
-			</div>
-		</form:form>
-                 </div>
-        <div class="modal-footer"> 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         </div> 
-      </div>
-    </div>
-  </div>
-
-<%-- <!-- Modal -->
-  <div class="modal fade" id="product" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Product Details</h2>
-        </div>
-        <div class="modal-body">
-         <form role="form">
-    <div class="form-group">
-      <img data-toggle="modal" data-target="#product" src="resources/images/Koala.jpg" alt=Image width=200px height=200px>
-    </div>
-    <div class="form-group">
-     
-    </div>
-   
-  </form> 
-        </div>
-        <div class="modal-footer"> 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         </div> 
-      </div>
-    </div>
-  </div>
- --%>
 </body>
 </html>

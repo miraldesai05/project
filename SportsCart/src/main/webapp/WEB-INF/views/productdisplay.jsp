@@ -31,7 +31,7 @@
     <div class="row">
             <div class="col-md-9">
                 <h3>
-                    Carousel Product Cart Slider</h3>
+                    Products </h3>
             </div>
             </div>
             <div class="row">

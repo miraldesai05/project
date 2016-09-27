@@ -31,6 +31,17 @@
     background-color: #4CAF50;
     color: white;
 }
+table{
+	width: 100%;
+}
+.glyphicon-edit
+{
+color: blue;
+}
+.glyphicon-trash
+{
+color: red; 
+}
   </style>
 <title>Insert title here</title>
 </head>
@@ -67,9 +78,9 @@
 			<td>{{group.supplierId}}</td>
 			<td>{{group.supplierName}}</td>
 			<td>{{group.supplierAddress}}</td>	
-			<td><a href="<c:url value='supplier/view/{{group.supplierId}}' />">View</a></td>
-			<td><a href="<c:url value='supplier/edit/{{group.supplierId}}' />">Edit</a></td>
-			<td><a href="<c:url value='supplier/remove/{{group.supplierId}}' />">Delete</a></td>
+			<td><a href="<c:url value='supplier/view/{{group.supplierId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+			<td><a href="<c:url value='supplier/edit/{{group.supplierId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
+			<td><a href="<c:url value='supplier/remove/{{group.supplierId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 			</tr>		
 	
 		</table>

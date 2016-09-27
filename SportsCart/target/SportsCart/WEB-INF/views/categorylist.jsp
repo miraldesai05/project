@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -32,6 +33,14 @@ th {
 }
 table{
 	width: 100%;
+}
+.glyphicon-edit
+{
+color: blue;
+}
+.glyphicon-trash
+{
+color: red; 
 }
 </style>
 <title>Insert title here</title>
@@ -68,9 +77,9 @@ table{
 					<td>{{group.categoryId}}</td>
 					<td>{{group.categoryName}}</td>
 					<td>{{group.desc}}</td>
-					<td><a href="<c:url value='category/view/{{group.categoryId}}' />">View</a></td>
-					<td><a href="<c:url value='category/edit/{{group.categoryId}}' />">Edit</a></td>
-					<td><a href="<c:url value='category/remove/{{group.categoryId}}' />">Delete</a></td>
+					<td><a href="<c:url value='category/view/{{group.categoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<td><a href="<c:url value='category/edit/{{group.categoryId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
+					<td><a href="<c:url value='category/remove/{{group.categoryId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 
 			</table>

@@ -225,5 +225,35 @@ public class FlowController {
 		}
 		return status;
 	}
+	
+	public String validateCardDetails(CardDetail cardDetail,MessageContext messageContext){
+		String status = "success";
+		if(cardDetail.getCardNumber().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"cardNumber").defaultText("Card number cannot be Empty").build());
+			status = "failure";
+		}
+		if(cardDetail.getExpiryMonth()== null){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"expiryMonth").defaultText("Select one Expiry month").build());
+			status = "failure";
+		}
+		if(cardDetail.getExpiryYear()== null){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"expiryYear").defaultText("Select one Expiry year").build());
+			status = "failure";
+		}
+		if(cardDetail.getCvNumber().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"cvNumber").defaultText("Cvv number cannot be Empty").build());
+			status = "failure";
+		}
+		if(cardDetail.getNameOnCard().isEmpty()){
+			messageContext.addMessage(new MessageBuilder().error().source(
+					"nameOnCard").defaultText("Name on card cannot be Empty").build());
+			status = "failure";
+		}
+		return status;
+	}
 
 }
