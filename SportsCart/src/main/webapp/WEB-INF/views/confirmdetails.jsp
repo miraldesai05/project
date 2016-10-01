@@ -87,8 +87,7 @@
 				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_edit" class="btn btn-success" type="submit" value="Edit">
 				</div>
-			</div>
-			
+			</div>		
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-2">
 						<input name="_eventId_submit" class="btn btn-success" type="submit" value="Confirm Details">
@@ -96,5 +95,6 @@
 			</div>
 		</form:form>
 	</div>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

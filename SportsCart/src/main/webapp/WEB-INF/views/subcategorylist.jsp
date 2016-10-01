@@ -41,6 +41,10 @@ color: blue;
 {
 color: red; 
 }
+footer
+{
+margin-top: 300px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -68,7 +72,7 @@ color: red;
 					<th ng-click="orderByMe('categoryId')">category Id</th>
 					<th ng-click="orderByMe('subcategoryName')">Subcategory Name</th>
 					<th ng-click="orderByMe('subcategoryDesc')">Subcategory Description</th>
-					<th>View Details</th>
+					<!-- <th>View Details</th> -->
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -78,7 +82,7 @@ color: red;
 					<td>{{group.categoryId}}</td>
 					<td>{{group.subcategoryName}}</td>
 					<td>{{group.subcategoryDesc}}</td>
-					<td><a href="<c:url value='subcategory/view/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<%-- <td><a href="<c:url value='subcategory/view/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td> --%>
 					<td><a href="<c:url value='subcategory/edit/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a href="<c:url value='subcategory/remove/{{group.subcategoryId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
@@ -86,6 +90,6 @@ color: red;
 			</table>
 		</div>
 	</div>
-
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

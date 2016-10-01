@@ -10,15 +10,10 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
-@Table
 @Component
 public class OrderDetail implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int orderDetailId;
 	private int customerId;
 	private double grandTotal;

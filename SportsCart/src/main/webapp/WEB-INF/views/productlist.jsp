@@ -26,6 +26,10 @@
 	});
 </script>
 <style>
+footer
+{
+margin-top: 300px;
+}
 th {
 	background-color: #4CAF50;
 	color: white;
@@ -94,5 +98,6 @@ color: red;
 			</table>
 		</div>
 	</div>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

@@ -21,6 +21,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+footer
+{
+margin-top: 300px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <%-- <%@include file="../shared/header.jsp"%> --%>
@@ -32,7 +38,12 @@
 		<div class="content">
 			<div class="container">
 				<div class="jumbotron">
-					<h1>Order Confirmed,Product will be delivered shortly.</h1>
+					<h2>
+					Thank you for placing your order with us.
+					</br>
+					</br>
+					Your order will be dispatched in next 2 days.
+					</h2>
 					<form:form><input type="submit" name="_eventId_finalHome"  value="Home" class="btn btn-lg btn-info"></form:form>
 					
 				
@@ -43,6 +54,7 @@
 		</div>
 		<%-- <%@include file="../shared/footer.jsp"%> --%>
 	</div>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 
 

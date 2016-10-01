@@ -21,31 +21,33 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+footer
+{
+margin-top: 300px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <%-- <%@include file="../shared/header.jsp"%> --%>
 
 <body>
-	<div class="container-fluid">
+	<div class="container">
+	<h2>Fill the Card Details</h2>
 		<%-- <%@include file="../shared/menubar.jsp"%> --%>
-
-		<div class="content">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Fill the Card Details</div>
-				<div class="panel-body">
 					<form:form class="form-horizontal" modelAttribute="cardDetail">
 						<div class="form-group">
-							<label for="" class="control-label col-sm-2">Card Number</label>
-							<div class="col-sm-5">
+						<form:label class="control-label col-sm-4" path="cardNumber">Card Number:</form:label>
+							<div class="col-sm-10 col-lg-6">
 							<%-- <form:errors path="cardNumber" class="error"/> --%>
-								<form:input path="cardNumber" autofocus="true" type="text" pattern="^[0-9]+$" title="Enter a valid card no" class="form-control" />
+							<form:input class="form-control col-lg-6" pattern="^[0-9]+$" title="Enter a valid card no" autofocus="true" placeholder="Enter a valid card no" path="cardNumber" />
 								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('cardNumber')}" var="err">
 					  			<div><span style="color: red">${err.text}</span></div>
 								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label col-sm-2">Expiry Month</label>
+						<form:label class="control-label col-sm-4" path="expiryMonth">Expiry Month:</form:label>
 							<div class="col-sm-2">
 							<%-- <form:errors path="expiryMonth" class="error"/> --%>
 								<form:select path="expiryMonth" id="" class="form-control">
@@ -69,7 +71,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label col-sm-2">Expiry Year</label>
+						<form:label class="control-label col-sm-4" path="expiryYear">Expiry Year:</form:label>
 							<div class="col-sm-2">
 							<%-- <form:errors path="expiryYear" class="error"/> --%>
 								<form:select path="expiryYear" name="" id=""
@@ -94,41 +96,41 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label col-sm-2">CVV Number</label>
-							<div class="col-sm-5">
+						<form:label class="control-label col-sm-4" path="cvNumber">CVV Number:</form:label>
+							<div class="col-sm-10 col-lg-6">
 							<%-- <form:errors path="cvNumber" class="error"/> --%>
-								<form:input path="cvNumber" type="text" pattern="^[0-9]{4}$" tilte="Enter a 4 digit ccv" class="form-control" />
+							<form:input class="form-control col-lg-6" pattern="^[0-9]{4}$" title="Enter a 4 digit ccv" autofocus="true" placeholder="Enter a 4 digit ccv" path="cvNumber" />
 								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('cvNumber')}" var="err">
 					  			<div><span style="color: red">${err.text}</span></div>
 								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="control-label col-sm-2">Name On Card</label>
-							<div class="col-sm-5">
+						<form:label class="control-label col-sm-4" path="nameOnCard">Name On Card:</form:label>
+							<div class="col-sm-10 col-lg-6">
 							<%-- <form:errors path="nameOnCard" class="error"/> --%>
-								<form:input path="nameOnCard" type="text" class="form-control" />
+							<form:input class="form-control col-lg-6" autofocus="true" placeholder="Enter name on card" path="nameOnCard" />
 								<c:forEach items="${flowRequestContext.messageContext.getMessagesBySource('nameOnCard')}" var="err">
 					  			<div><span style="color: red">${err.text}</span></div>
 								</c:forEach>
 							</div>
 						</div>
-						<div class="col-md-offset-3">
+						<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-2">
 							<input type="submit" value="Checkout"
 								name="_eventId_confirmCheckout" class="btn btn-md btn-success">
 							<input type="submit" value="Cancel" name="_eventId_cancel"
 								class="btn btn-md btn-danger">
 						</div>
-
+						</div>
 					</form:form>
-				</div>
-			</div>
-		</div>
+			
 		<%-- <%@include file="../shared/footer.jsp"%> --%>
 
 
 
 	</div>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 
 

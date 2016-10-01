@@ -17,19 +17,27 @@
 		<security:csrf disabled="true" />
 		<security:intercept-url pattern="/cartitem/add"
 			access="hasRole('ROLE_USER')" />
-		<security:intercept-url pattern="/index"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
-		<security:intercept-url pattern="/blogpage"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
 		<security:intercept-url pattern="/cartitemlist"
-			access="hasAnyRole('ROLE_USER')" />
-		<security:intercept-url pattern="/welcome/**"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
-		<security:intercept-url pattern="/forumpage"
-			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
-		<security:intercept-url pattern="/blogapproval/**"
-			access="hasRole('ROLE_ADMIN')" />	
-									
+			access="hasAnyRole('ROLE_USER')" /> 
+		<security:intercept-url pattern="/categories"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/categorylist"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/subcategories"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/subcategorylist"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/suppliers"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/supplierlist"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/products"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/productlist"
+			access="hasRole('ROLE_ADMIN')" />	 	
+		<security:intercept-url pattern="/productdisplay"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />			
+										
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:form-login login-page="/login"
 			default-target-url="/" login-processing-url="/perform_login"

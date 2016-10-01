@@ -63,13 +63,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="resources/images/Capture.PNG" alt="Image">
-      <a class="navbar-brand" href="#">SportsCart</a>
+      <!-- <img src="resources/images/Capture1.PNG" alt="Image" style="width:180px;height:40px"> -->
+      <!-- <img src="resources/images/Capture5.PNG" alt="Image" style="width:50px;height:50px"> -->
+     <a class="navbar-brand" href="#">SportsCart</a> 
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="aboutus">About Us</a></li>
+          <li><a href="contactus">Contact Us</a></li>
         <sec:authorize access="hasRole('ROLE_ADMIN')">
        <li><a href="categories">Add Category</a></li>
         <li><a href="subcategories">Add Subcategory</a></li>
@@ -85,7 +87,7 @@
       	</li>  
       	<sec:authorize access="isAnonymous()">	
         <li><a href="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>     
-        <li data-toggle="modal" data-target="#login"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
         <li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -145,6 +147,7 @@
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
@@ -158,7 +161,15 @@
         </div>
 
         <div class="item">
-          <img src="resources/images/Shop_for_kids.jpg" alt="Image">
+          <img src="resources/images/Sport-Wallpaper-Collections.jpg" alt="Image">
+          <!-- <div class="carousel-caption">
+            <h3>More Sell $</h3>
+            <p>Lorem ipsum...</p>
+          </div> -->
+        </div>
+        
+         <div class="item">
+          <img src="resources/images/adidas-football-ball-speed-running-emblem-adidas.jpg" alt="Image">
           <!-- <div class="carousel-caption">
             <h3>More Sell $</h3>
             <p>Lorem ipsum...</p>
@@ -181,7 +192,6 @@
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>    
   </div>
 </div>
-<hr>
 </div>
 <%-- <%@ include file="/WEB-INF/views/productdisplay.jsp"%> --%>
 <div class="container">
@@ -215,10 +225,10 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-add">
-                                        	<i class="fa fa-shopping-cart"></i><a href="cartitem/add?productId={{group.productId}}" class="hidden-sm">Add to cart</a>
+                                        	<i class="fa fa-shopping-cart"></i><a href="cartitem/add?productId=${product.productId}" class="hidden-sm">Add to cart</a>
 										</p>
                                         <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="<c:url value='/productview{{group.productId}}' />" class="hidden-sm">More details</a>
+                                            <i class="fa fa-list"></i><a href="<c:url value='/productview${product.productId}' />" class="hidden-sm">More details</a>
                                         </p>
                                     </div>
                                     <div class="clearfix">
@@ -232,29 +242,29 @@
 </div>
 
 
-<div class="container text-center">
-  <!-- <h3>Our Partners</h3> -->
+<!-- <div class="container text-center">
+  <h3>Our Partners</h3>
   <br>
   <div class="row">
     <div class="col-sm-3">
       <img src="resources/images/home-banner-1.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <!-- <p>Partner 1</p> -->
+      <p>Partner 1</p>
     </div>
     <div class="col-sm-3">
       <img src="resources/images/badminton.png" class="img-responsive" style="width:100%" alt="Image">
-     <!--  <p>Partner 2</p> -->
+      <p>Partner 2</p>
     </div>
     <div class="col-sm-3">
       <img src="resources/images/basketball-accessories.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <!-- <p>Partner 3</p> -->
+      <p>Partner 3</p>
     </div>
     <div class="col-sm-3">
       <img src="resources/images/badminton-h.jpg" class="img-responsive" style="width:100%" alt="Image">
-      <!-- <p>Partner 4</p> -->
+      <p>Partner 4</p>
     </div>
   </div>
   <hr>
-</div><br>
+</div><br> -->
 
 <div class="container">
   <br>
@@ -279,43 +289,8 @@
     </div>
   </div>
 </div><br>
-
-<footer class="container-fluid text-center">
-  <p></p>
-</footer>
-
- <!-- Modal -->
-  <div class="modal fade" id="login" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Login</h2>
-        </div>
-        <div class="modal-body">
-        <form role="form" action="perform_login" method="POST">
-    <div class="form-group">
-    <label for="username">Username:</label>
-      <input type="text" class="form-control" placeholder="Enter username" name="username">
-    </div>
-    <div class="form-group">
-     <label for="password">Password:</label>
-      <input type="password" class="form-control" placeholder="Enter password" name="password">
-    </div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
- <!--    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div> -->
-   <input class="btn btn-success" type="submit" value="Login">
-  </form> 
-        </div>
-        <div class="modal-footer"> 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         </div> 
-      </div>
-    </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script>
 var myApp = angular.module('myApp', []);
 	myApp.controller('getData', function($scope, $http, $location) {

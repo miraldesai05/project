@@ -134,7 +134,7 @@ public class FlowController {
 		user = userService.getByName(SecurityContextHolder.getContext().getAuthentication().getName());
 
 		cardDetail.setUserId(user.getUserId());
-		cardDetail.setTotalCost(cartService.get(user.getUserId()).getGrandTotal());
+		/*cardDetail.setTotalCost(cartService.get(user.getUserId()).getGrandTotal());*/
 		cardDetailService.addCardDetail(cardDetail);
 
 		List<CartItem> listCartItem = cartItemService.getList(user.getUserId());

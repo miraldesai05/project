@@ -7,8 +7,8 @@ public class CheckoutDetails implements Serializable {
 	private CardDetail cardDetail;
 	private ShippingAddress shippingAddress;
 	private BillingAddress billingAddress;
-	private OrderDetail orderDetail;
-	private OrderedItems orderedItems;
+	/*private OrderDetail orderDetail;
+	private OrderedItems orderedItems;*/
 	private Cart cart;
 	private CartItem cartItem;
 	private User user;
@@ -31,7 +31,7 @@ public class CheckoutDetails implements Serializable {
 	public void setBillingAddress(BillingAddress billingAddress) {
 		this.billingAddress = billingAddress;
 	}
-	public OrderDetail getOrderDetail() {
+	/*public OrderDetail getOrderDetail() {
 		return orderDetail;
 	}
 	public void setOrderDetail(OrderDetail orderDetail) {
@@ -42,7 +42,7 @@ public class CheckoutDetails implements Serializable {
 	}
 	public void setOrderedItems(OrderedItems orderedItems) {
 		this.orderedItems = orderedItems;
-	}
+	}*/
 	public Cart getCart() {
 		return cart;
 	}

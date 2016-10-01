@@ -22,6 +22,12 @@
 		 
 		 });	
 </script>
+<style>
+footer
+{
+margin-top: 300px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body ng-app="myApp" ng-controller="getData">
@@ -34,7 +40,7 @@
       <img style="width:300px;height:300px" src="{{productdata.image}}"/>
     </div>
     <div class="col-sm-7">
-      <h3>Product Name: {{productdata.productName}}</h3>
+      <h2 style="color: #99ccff">{{productdata.productName}}</h2>
     
       <h3>Product Description: {{productdata.productDesc}}</h3>
    
@@ -45,6 +51,7 @@
      <a href="cartitem/add?productId={{productdata.productId}}" class="btn btn-success" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</a>
     </div>
   </div>
- </div>		
+ </div>	
+ <%@ include file="/WEB-INF/views/footer.jsp"%>	
 </body>
 </html>

@@ -59,4 +59,10 @@ public class SportsController {
 		return "aboutus";
 	}
 	
+	@RequestMapping("/contactus")
+	public String getContactus()
+	{
+		return "contactus";
+	}
+	
 }

@@ -30,6 +30,7 @@
       <ul class="nav navbar-nav">
        <li><a href="/SportsCart/">Home</a></li>
        <li><a href="aboutus">About Us</a></li>
+       <li><a href="contactus">Contact Us</a></li>
        <sec:authorize access="hasRole('ROLE_ADMIN')">
        <li><a href="categories">Add Category</a></li>
         <li><a href="subcategories">Add Subcategory</a></li>
@@ -46,11 +47,11 @@
   		</c:if>
       	</li>  
       	<sec:authorize access="isAnonymous()">	
-        <li  data-toggle="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<!--<li data-toggle="modal" data-target="#login"><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+        <li><a href="memberShip"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
-        <li><a href="<c:url value="/logout" />">Logout</a></li>
+        <li><a href="<c:url value="/logout" />"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </sec:authorize>
       </ul> 
     </div>

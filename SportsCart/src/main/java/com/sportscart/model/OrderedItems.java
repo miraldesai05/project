@@ -10,16 +10,12 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Entity
-@Table
 @Component
 public class OrderedItems implements Serializable{
 	/**
 	 * 
 	*/
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int orderedItemId;
 	private int userId;
 	private int productId;

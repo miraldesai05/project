@@ -28,14 +28,23 @@
 </head>
 <body ng-app="myApp" ng-controller="getData">
 <div class="container">
-    <div class="row">
-            <div class="col-md-9">
-                <h3>
-                    Products </h3>
-            </div>
-            </div>
+		<h2>Products</h2>
+		<div class="row"> <!-- search box row -->
+		<div class="container">
+			<form role="form" method="post" >
+			 	<div class="row">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-3 pull-right"> 
+						<div class="form-group ">
+							    <input type="text" ng-model="searchKeyword" class="form-control cols-sm-5" name="searchKeyword" id="searchKeyword" placeholder="Search.."/>
+ 						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+		
             <div class="row">
-             <div class="col-sm-4" ng-repeat="group in productdata">
+             <div class="col-sm-4" ng-repeat="group in productdata | filter:searchKeyword">
                             <div class="col-item">
                                 <div class="photo">
                                     <img src="{{group.image}}" class="img-responsive" alt="" />
@@ -67,5 +76,7 @@
              </div>
 			</div>
 </div>
+<br>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

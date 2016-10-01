@@ -19,7 +19,7 @@ public class Cart implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cartId;
 	private int userId;
-	private double grandTotal;
+	/*private double grandTotal;*/
 	private int noOfProducts;
 	@OneToOne(mappedBy="cart", cascade=CascadeType.ALL)
 	@JoinColumn(name="userId",insertable=false,updatable=false,nullable=false)
@@ -43,12 +43,12 @@ public class Cart implements Serializable {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public double getGrandTotal() {
+/*	public double getGrandTotal() {
 		return grandTotal;
 	}
 	public void setGrandTotal(double grandTotal) {
 		this.grandTotal = grandTotal;
-	}
+	}*/
 	public int getNoOfProducts() {
 		return noOfProducts;
 	}

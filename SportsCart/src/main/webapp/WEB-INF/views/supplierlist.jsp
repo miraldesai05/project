@@ -42,6 +42,10 @@ color: blue;
 {
 color: red; 
 }
+footer
+{
+margin-top: 300px;
+}
   </style>
 <title>Insert title here</title>
 </head>
@@ -68,7 +72,7 @@ color: red;
 		<th ng-click="orderByMe('supplierId')">Supplier ID</th>
 		<th ng-click="orderByMe('supplierName')">Supplier Name</th>
 		<th ng-click="orderByMe('supplierAddress')">Supplier Address</th>
-		<th>View Details</th>
+		<!-- <th>View Details</th> -->
 		<th>Edit</th>
 		<th>Delete</th>
 		</tr>
@@ -78,7 +82,7 @@ color: red;
 			<td>{{group.supplierId}}</td>
 			<td>{{group.supplierName}}</td>
 			<td>{{group.supplierAddress}}</td>	
-			<td><a href="<c:url value='supplier/view/{{group.supplierId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+			<%-- <td><a href="<c:url value='supplier/view/{{group.supplierId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td> --%>
 			<td><a href="<c:url value='supplier/edit/{{group.supplierId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
 			<td><a href="<c:url value='supplier/remove/{{group.supplierId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 			</tr>		
@@ -86,6 +90,6 @@ color: red;
 		</table>
 		</div>
 		</div>
-
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

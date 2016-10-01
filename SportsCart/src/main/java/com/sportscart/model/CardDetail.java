@@ -33,7 +33,7 @@ public class CardDetail implements Serializable{
 	private String cvNumber;
 	@NotEmpty(message="Name must be entered")
 	private String nameOnCard;
-	private double totalCost;
+	/*private double totalCost;*/
 	
 	public int getCardDetailId() {
 		return cardDetailId;
@@ -77,11 +77,11 @@ public class CardDetail implements Serializable{
 	public void setNameOnCard(String nameOnCard) {
 		this.nameOnCard = nameOnCard;
 	}
-	public double getTotalCost() {
+	/*public double getTotalCost() {
 		return totalCost;
 	}
 	public void setTotalCost(double totalCost) {
 		this.totalCost = totalCost;
-	}
+	}*/
 	
 }

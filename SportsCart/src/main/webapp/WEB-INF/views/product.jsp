@@ -16,6 +16,10 @@
 .error {
 	color: #ff0000;
 }
+footer
+{
+margin-top: 300px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -108,5 +112,6 @@
 			
 		</form:form>
 	</div>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

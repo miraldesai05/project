@@ -16,9 +16,8 @@
 <script>
 	var myApp = angular.module('myApp', []);
 	myApp.controller('getData', function($scope, $http, $location) {
-		/* $scope.searchKeyword=location.search.substr(15); */
+	
 		$scope.categorydata = ${categoryList};
-		//alert($scope.categorydata);
 		
 		$scope.orderByMe = function(group) {
         $scope.myOrderBy = group;
@@ -41,6 +40,10 @@ color: blue;
 .glyphicon-trash
 {
 color: red; 
+}
+footer
+{
+margin-top: 300px;
 }
 </style>
 <title>Insert title here</title>
@@ -68,7 +71,7 @@ color: red;
 					<th ng-click="orderByMe('categoryId')">Category ID</th>
 					<th ng-click="orderByMe('categoryName')">Category Name</th>
 					<th ng-click="orderByMe('desc')">Category Description</th>
-					<th>View Details</th>
+					<!-- <th>View Details</th> -->
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -77,7 +80,7 @@ color: red;
 					<td>{{group.categoryId}}</td>
 					<td>{{group.categoryName}}</td>
 					<td>{{group.desc}}</td>
-					<td><a href="<c:url value='category/view/{{group.categoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<%-- <td><a href="<c:url value='category/view/{{group.categoryId}}' />"><span class="glyphicon glyphicon-info-sign"></span></a></td> --%>
 					<td><a href="<c:url value='category/edit/{{group.categoryId}}' />"><span class="glyphicon glyphicon-edit"></span></a></td>
 					<td><a href="<c:url value='category/remove/{{group.categoryId}}' />"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
@@ -85,6 +88,6 @@ color: red;
 			</table>
 		</div>
 	</div>
-
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>
